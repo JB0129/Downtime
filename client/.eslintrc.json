@@ -1,0 +1,45 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "commonjs": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "prettier",
+    "jsx-a11y"
+  ],
+  "rules": {
+    "no-console": "error",
+    "no-unused-vars": "error",
+    "react/no-unsafe": "error",
+    "prettier/prettier": "error",
+    "react/react-in-jsx-scope": "error",
+    "react-hooks/rules-of-hooks": "error"
+    // quotes, semi 등 https://eslint.org/docs/rules/ 에서 규칙 종류 찾을 수 있음.
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
