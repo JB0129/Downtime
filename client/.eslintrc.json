@@ -34,7 +34,14 @@
     "react/no-unsafe": "error",
     "prettier/prettier": "error",
     "react/react-in-jsx-scope": "error",
-    "react-hooks/rules-of-hooks": "error"
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        "additionalHooks": "useRecoilCallback"
+      }
+    ]
+    // useRecoilCallback을 사용할때 해결 방법을 eslint를 통하여 제시해줍니다.
     // quotes, semi 등 https://eslint.org/docs/rules/ 에서 규칙 종류 찾을 수 있음.
   },
   "settings": {
