@@ -1,8 +1,8 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import { themeAtom } from "./styles/theme";
-import Words from "./pages/Words/Words";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Wordle from "./pages/Words/Wordle";
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
@@ -24,15 +24,20 @@ const router = createBrowserRouter([
         // children: [],
       },
       {
-        element: <Header />,
+        element: (
+          <>
+            <Header />
+            <Outlet />
+          </>
+        ),
         children: [
           {
             path: "/home",
             element: <>home</>,
           },
           {
-            path: "/words",
-            element: <Words />,
+            path: "/wordle",
+            element: <Wordle />,
           },
         ],
       },

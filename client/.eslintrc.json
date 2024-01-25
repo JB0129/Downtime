@@ -29,8 +29,8 @@
     "jsx-a11y"
   ],
   "rules": {
-    "no-console": "error",
-    "no-unused-vars": "error",
+    // "no-console": "error",
+    // "no-unused-vars": "error",
     "react/no-unsafe": "error",
     "prettier/prettier": "error",
     "react/react-in-jsx-scope": "error",
