@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Words, Word, Letter } from "./Words.style";
+import { Words, Word, Letter, LetterBox } from "./Words.style";
 
 const TodayWord = "avoid";
 
@@ -19,17 +19,65 @@ const Wordle: React.FC = () => {
   const forthRef = useRef<HTMLInputElement>(null);
   const fifthRef = useRef<HTMLInputElement>(null);
 
-  const handleInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.target === firstRef.current) {
-      if (isWord.first.length > 0) secondRef.current?.focus();
-    } else if (e.target === secondRef.current) {
-      if (isWord.second.length > 0) thirdRef.current?.focus();
-    } else if (e.target === thirdRef.current) {
-      if (isWord.third.length > 0) forthRef.current?.focus();
-    } else if (e.target === forthRef.current) {
-      if (isWord.forth.length > 0) fifthRef.current?.focus();
-    } else if (e.target === fifthRef.current) {
-      if (isWord.fifth.length > 0) if (e.key === "Enter") setComplete(true);
+  const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      if (e.currentTarget.value) {
+        if (e.target === firstRef.current) {
+          secondRef.current?.focus();
+        } else if (e.target === secondRef.current) {
+          thirdRef.current?.focus();
+        } else if (e.target === thirdRef.current) {
+          forthRef.current?.focus();
+        } else if (e.target === forthRef.current) {
+          fifthRef.current?.focus();
+        } else if (e.target === fifthRef.current) {
+          setComplete(true);
+        }
+      }
+    }
+
+    if (e.key === "Backspace") {
+      if (e.currentTarget.value) return;
+      else {
+        if (e.target === secondRef.current) {
+          firstRef.current?.focus();
+        } else if (e.target === thirdRef.current) {
+          secondRef.current?.focus();
+        } else if (e.target === forthRef.current) {
+          thirdRef.current?.focus();
+        } else if (e.target === fifthRef.current) {
+          forthRef.current?.focus();
+        }
+      }
+    }
+
+    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") {
+      if (e.target === firstRef.current) {
+        if (isWord.first.length) secondRef.current?.focus();
+      } else if (e.target === secondRef.current) {
+        if (isWord.second.length) thirdRef.current?.focus();
+      } else if (e.target === thirdRef.current) {
+        if (isWord.third.length) forthRef.current?.focus();
+      } else if (e.target === forthRef.current) {
+        if (isWord.forth.length) fifthRef.current?.focus();
+      }
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (/[a-zA-z]/.test(e.currentTarget.value) || !e.currentTarget.value) {
+      const value = e.currentTarget.value.toLowerCase(); // 소문자로 통일
+      if (e.target === firstRef.current) {
+        setWord({ ...isWord, first: value });
+      } else if (e.target === secondRef.current) {
+        setWord({ ...isWord, second: value });
+      } else if (e.target === thirdRef.current) {
+        setWord({ ...isWord, third: value });
+      } else if (e.target === forthRef.current) {
+        setWord({ ...isWord, forth: value });
+      } else if (e.target === fifthRef.current) {
+        setWord({ ...isWord, fifth: value });
+      }
     }
   };
 
@@ -41,38 +89,64 @@ const Wordle: React.FC = () => {
             <Letter
               ref={firstRef}
               value={isWord.first}
-              onChange={(e) => setWord({ ...isWord, first: e.target.value })}
-              onKeyUp={(e) => handleInput(e)}
+              onChange={(e) => handleChange(e)}
+              onKeyUp={(e) => handleKeyUp(e)}
+              type="text"
+              maxLength={1}
             />
             <Letter
               ref={secondRef}
               value={isWord.second}
-              onChange={(e) => setWord({ ...isWord, second: e.target.value })}
+              onChange={(e) => handleChange(e)}
+              onKeyUp={(e) => handleKeyUp(e)}
+              type="text"
+              maxLength={1}
             />
             <Letter
               ref={thirdRef}
               value={isWord.third}
-              onChange={(e) => setWord({ ...isWord, third: e.target.value })}
+              onChange={(e) => handleChange(e)}
+              onKeyUp={(e) => handleKeyUp(e)}
+              type="text"
+              maxLength={1}
             />
             <Letter
               ref={forthRef}
               value={isWord.forth}
-              onChange={(e) => setWord({ ...isWord, forth: e.target.value })}
+              onChange={(e) => handleChange(e)}
+              onKeyUp={(e) => handleKeyUp(e)}
+              type="text"
+              maxLength={1}
             />
             <Letter
               ref={fifthRef}
               value={isWord.fifth}
-              onChange={(e) => setWord({ ...isWord, fifth: e.target.value })}
+              onChange={(e) => handleChange(e)}
+              onKeyUp={(e) => handleKeyUp(e)}
+              type="text"
+              maxLength={1}
             />
           </Word>
         </Words>
       ) : (
         <Words>
-          <div>{isWord.first}</div>
-          <div>{isWord.second}</div>
-          <div>{isWord.third}</div>
-          <div>{isWord.forth}</div>
-          <div>{isWord.fifth}</div>
+          <Word>
+            <LetterBox>
+              <div>{isWord.first}</div>
+            </LetterBox>
+            <LetterBox>
+              <div>{isWord.second}</div>
+            </LetterBox>
+            <LetterBox>
+              <div>{isWord.third}</div>
+            </LetterBox>
+            <LetterBox>
+              <div>{isWord.forth}</div>
+            </LetterBox>
+            <LetterBox>
+              <div>{isWord.fifth}</div>
+            </LetterBox>
+          </Word>
         </Words>
       )}
     </div>
@@ -80,3 +154,11 @@ const Wordle: React.FC = () => {
 };
 
 export default Wordle;
+
+//해야하는일
+//1. 영어로만 입력하게 하기(+ 한글로만)
+//2.
+//
+//
+//
+//

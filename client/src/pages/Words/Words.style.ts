@@ -19,6 +19,18 @@ export const Word = styled.li`
 
 export const Letter = styled.input`
   /* background-color: ${({ theme }) => theme.style.backgroundColor}; */
+  border: 1px solid black;
   width: 100px;
   height: 100px;
+  text-align: center;
+`;
+
+export const LetterBox = styled.div`
+  /* background-color: ${({ theme }) => theme.style.backgroundColor}; */
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
