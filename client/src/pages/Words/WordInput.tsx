@@ -34,6 +34,11 @@ const WordInput: React.FC<OwnProps> = ({ solve, handleMoreChance }) => {
         } else if (e.target === forthRef.current) {
           fifthRef.current?.focus();
         } else if (e.target === fifthRef.current) {
+          // 빈칸이 있을때 알림 처리
+          if (Object.values(isWord).includes("")) {
+            alert("빈칸이 있습니다.");
+            return;
+          }
           setComplete(true);
         }
       }
@@ -85,10 +90,14 @@ const WordInput: React.FC<OwnProps> = ({ solve, handleMoreChance }) => {
   };
 
   useEffect(() => {
+    firstRef.current?.focus();
+
     if (complete) {
       const answer = Object.values(isWord).join("");
       if (solve !== answer) {
         handleMoreChance();
+      } else {
+        alert("정답입니다!");
       }
     }
   }, [complete]);
@@ -105,6 +114,9 @@ const WordInput: React.FC<OwnProps> = ({ solve, handleMoreChance }) => {
               onKeyUp={(e) => handleKeyUp(e)}
               type="text"
               maxLength={1}
+              onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                if (e.key === "Tab") return;
+              }}
             />
             <Letter
               ref={secondRef}
