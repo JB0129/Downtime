@@ -1,13 +1,15 @@
 import React from "react";
-import { ThemeProvider } from "styled-components";
+import { useRecoilValue } from "recoil";
 import { themeAtom } from "./styles/theme";
-import Wordle from "./pages/Words/Wordle";
+import { ThemeProvider } from "styled-components";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
-import NotFound from "./pages/NotFound";
+import Main from "./pages/Main";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import NotFound from "./pages/NotFound";
+import Wordle from "./pages/Words/Wordle";
 import Header from "./components/Header/Header";
-import { useRecoilValue } from "recoil";
+import Home from "./pages/Home";
 
 const router = createBrowserRouter([
   {
@@ -15,13 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Login />,
-        // children: [],
-      },
-      {
-        path: "/signup",
-        element: <SignUp />,
-        // children: [],
+        element: <Home />,
       },
       {
         element: (
@@ -32,8 +28,16 @@ const router = createBrowserRouter([
         ),
         children: [
           {
-            path: "/home",
-            element: <>home</>,
+            path: "/login",
+            element: <Login />,
+          },
+          {
+            path: "/signup",
+            element: <SignUp />,
+          },
+          {
+            path: "/main",
+            element: <Main />,
           },
           {
             path: "/wordle",
