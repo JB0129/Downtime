@@ -6,13 +6,19 @@ const Main: React.FC = () => {
 
   return (
     <div>
-      <div>Choose game you want!</div>
-      <button onClick={() => navigate("/wordle")}>Wordle</button>
-      <button onClick={() => navigate("/none")}>none</button>
-      <button onClick={() => navigate("/none")}>none</button>
-      <button onClick={() => navigate("/none")}>none</button>
-      <button onClick={() => navigate("/none")}>none</button>
-      <button onClick={() => navigate("/none")}>none</button>
+      <div>
+        <div>Choose game you want!</div>
+        <h2>Single game</h2>
+        <button onClick={() => navigate("/wordle")}>Wordle</button>
+        <button onClick={() => navigate("/none")}>준비중</button>
+        <button onClick={() => navigate("/none")}>준비중</button>
+      </div>
+      <div>
+        <h2>Multiple game</h2>
+        <button onClick={() => navigate("/none")}>준비중</button>
+        <button onClick={() => navigate("/none")}>준비중</button>
+        <button onClick={() => navigate("/none")}>준비중</button>
+      </div>
     </div>
   );
 };
