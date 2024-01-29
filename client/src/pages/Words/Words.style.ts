@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-export const PageContainer = styled.div``;
-
 export const Words = styled.ul`
   /* background-color: ${({ theme }) => theme.style.backgroundColor}; */
   display: flex;

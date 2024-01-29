@@ -1,4 +1,5 @@
 import React from "react";
+import { KeyLine, KeyboardContainer, Keys } from "./Keyboard.style";
 
 const Keyboard: React.FC = () => {
   const topKey = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "←"];
@@ -6,11 +7,25 @@ const Keyboard: React.FC = () => {
   const bottomKey = ["z", "x", "c", "v", "b", "n", "m"];
 
   return (
-    <div>
-      {<div>{<div></div>}</div>}
-      <div></div>
-      <div></div>
-    </div>
+    <KeyboardContainer>
+      {
+        <KeyLine>
+          {topKey.map((el, idx) => (
+            <Keys key={idx}>{el}</Keys>
+          ))}
+        </KeyLine>
+      }
+      <KeyLine>
+        {middleKey.map((el, idx) => (
+          <Keys key={idx}>{el}</Keys>
+        ))}
+      </KeyLine>
+      <KeyLine>
+        {bottomKey.map((el, idx) => (
+          <Keys key={idx}>{el}</Keys>
+        ))}
+      </KeyLine>
+    </KeyboardContainer>
   );
 };
 

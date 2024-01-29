@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import WordInput from "./WordInput";
+import Keyboard from "../../components/Keyboard/Keyboard";
 
 const solve = "happy";
 
@@ -10,13 +11,16 @@ const Wordle: React.FC = () => {
 
   return (
     <div>
-      {times.map((times: number) => (
-        <WordInput
-          key={times}
-          solve={solve}
-          handleMoreChance={handleMoreChance}
-        />
-      ))}
+      <div>
+        {times.map((times: number) => (
+          <WordInput
+            key={times}
+            solve={solve}
+            handleMoreChance={handleMoreChance}
+          />
+        ))}
+      </div>
+      {/* <Keyboard /> */}
     </div>
   );
 };

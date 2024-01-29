@@ -9,41 +9,33 @@ import SignUp from "./pages/SignUp";
 import NotFound from "./pages/NotFound";
 import Wordle from "./pages/Words/Wordle";
 import Header from "./components/Header/Header";
-import Home from "./pages/Home";
+import { MainContainer, PageContainer } from "./atoms/layouts/layout.style";
 
 const router = createBrowserRouter([
   {
+    element: (
+      <>
+        <Header />
+        <Outlet />
+      </>
+    ),
     errorElement: <NotFound />,
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <Login />,
       },
       {
-        element: (
-          <>
-            <Header />
-            <Outlet />
-          </>
-        ),
-        children: [
-          {
-            path: "/login",
-            element: <Login />,
-          },
-          {
-            path: "/signup",
-            element: <SignUp />,
-          },
-          {
-            path: "/main",
-            element: <Main />,
-          },
-          {
-            path: "/wordle",
-            element: <Wordle />,
-          },
-        ],
+        path: "/signup",
+        element: <SignUp />,
+      },
+      {
+        path: "/main",
+        element: <Main />,
+      },
+      {
+        path: "/wordle",
+        element: <Wordle />,
       },
     ],
   },
@@ -54,7 +46,11 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <RouterProvider router={router} />
+      <PageContainer>
+        <MainContainer>
+          <RouterProvider router={router} />
+        </MainContainer>
+      </PageContainer>
     </ThemeProvider>
   );
 };

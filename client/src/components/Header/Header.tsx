@@ -23,11 +23,11 @@ const Header: React.FC = () => {
           <Link to="/words">Words</Link>
           <Link to="/signUp">SignUp</Link>
         </div>
+        <div>
+          <button onClick={goBack}>뒤로가기</button>
+          <button onClick={toggleTheme}>테마 바꾸기</button>
+        </div>
       </HeaderContainer>
-      <div>
-        <button onClick={goBack}>뒤로가기</button>
-        <button onClick={toggleTheme}>테마 바꾸기</button>
-      </div>
     </>
   );
 };
