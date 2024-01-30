@@ -1,6 +1,13 @@
 import React from "react";
-import { HeaderContainer, Logo } from "./Header.style";
-import { Link, useNavigate } from "react-router-dom";
+import {
+  HeaderContainer,
+  HeaderLine,
+  Logo,
+  LogoImg,
+  Navs,
+  Nav,
+} from "./Header.style";
+import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import { darkTheme, lightTheme, themeAtom } from "../../styles/theme";
 
@@ -11,24 +18,26 @@ const Header: React.FC = () => {
   const toggleTheme = () =>
     setTheme((theme) => (theme.value === "light" ? darkTheme : lightTheme));
 
-  const goBack = () => navigate(-1);
-
   return (
-    <>
-      <HeaderContainer>
-        <Link to="/">
-          <Logo src="" alt="Logo" />
-        </Link>
+    <HeaderContainer>
+      <HeaderLine>
+        <Logo onClick={() => navigate("/main")}>
+          <LogoImg src="" alt="Logo" />
+        </Logo>
         <div>
-          <Link to="/words">Words</Link>
-          <Link to="/signUp">SignUp</Link>
-        </div>
-        <div>
-          <button onClick={goBack}>뒤로가기</button>
           <button onClick={toggleTheme}>테마 바꾸기</button>
+          <button onClick={() => navigate("/")}>로그인</button>
         </div>
-      </HeaderContainer>
-    </>
+      </HeaderLine>
+      <Navs>
+        <Nav onClick={() => navigate("/main")}>홈</Nav>
+        <Nav onClick={() => navigate("/games")}>게임</Nav>
+        <Nav onClick={() => navigate("/quiz")}>퀴즈</Nav>
+        <Nav onClick={() => navigate("/ranking")}>랭킹</Nav>
+        <Nav onClick={() => navigate("/community")}>게시판</Nav>
+        <Nav onClick={() => navigate("/notices")}>공지사항</Nav>
+      </Navs>
+    </HeaderContainer>
   );
 };
 

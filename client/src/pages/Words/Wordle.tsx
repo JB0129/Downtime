@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import WordInput from "./WordInput";
-import Keyboard from "../../components/Keyboard/Keyboard";
+import WordInput from "./component/WordInput";
+import Keyboard from "./component/Keyboard/Keyboard";
 
 const solve = "happy";
 
