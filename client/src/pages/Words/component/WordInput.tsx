@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Words, Word, Letter, LetterBox } from "../Words.style";
+import { Words, Word, Letter, LetterBox } from "./../Words.style";
 
 interface OwnProps {
   solve: string;
