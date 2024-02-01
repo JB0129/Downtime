@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { MainContainer } from "../../assets/layouts/layout.style";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div>
+    <MainContainer>
       <form>
         <div>
           <span>아이디</span>
@@ -24,8 +25,9 @@ const Login: React.FC = () => {
           로그인
         </button>
       </form>
+      <button onClick={() => navigate("/signup")}>회원가입</button>
       <button onClick={() => navigate("/main")}>로그인 없이 시작하기</button>
-    </div>
+    </MainContainer>
   );
 };
 

@@ -1,16 +1,5 @@
 import styled from "styled-components";
 
-export const MainContainer = styled.div`
-  width: 100%;
-  max-width: 1170px;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-
-  border: 1px solid red;
-`;
-
 export const GameLists = styled.div`
   width: 100%;
   padding: 20px;

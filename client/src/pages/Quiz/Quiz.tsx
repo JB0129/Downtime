@@ -1,8 +1,8 @@
 import React from "react";
 import { MainContainer } from "./../../assets/layouts/layout.style";
 
-const Main: React.FC = () => {
-  return <MainContainer>Main</MainContainer>;
+const Quiz: React.FC = () => {
+  return <MainContainer>Quiz</MainContainer>;
 };
 
-export default Main;
+export default Quiz;

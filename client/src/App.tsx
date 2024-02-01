@@ -7,9 +7,17 @@ import Main from "./pages/Main/Main";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
 import NotFound from "./pages/NotFound";
-import Wordle from "./pages/Words/Wordle";
 import Header from "./components/Header/Header";
 import { PageContainer } from "./assets/layouts/layout.style";
+import Games from "./pages/Games/Games";
+import Wordle from "./pages/Wordle/Wordle";
+import Quiz from "./pages/Quiz/Quiz";
+import Pingpong from "./pages/Pingpong/Pingpong";
+import Jumping from "./pages/Jumping/Jumping";
+import Ranking from "./pages/Ranking/Ranking";
+import Community from "./pages/Community/Community";
+import Notices from "./pages/Notices/Notices";
+import Minesweeper from "./pages/Minesweeper/Minesweeper";
 
 const router = createBrowserRouter([
   {
@@ -35,39 +43,39 @@ const router = createBrowserRouter([
       },
       {
         path: "/games",
-        element: <Main />,
+        element: <Games />,
       },
       {
         path: "/wordle",
         element: <Wordle />,
       },
       {
-        path: "/mine",
-        element: <Main />,
+        path: "/minesweeper",
+        element: <Minesweeper />,
       },
       {
         path: "/jumping",
-        element: <Main />,
+        element: <Jumping />,
       },
       {
         path: "/pingpong",
-        element: <Main />,
+        element: <Pingpong />,
       },
       {
         path: "/quiz",
-        element: <Main />,
+        element: <Quiz />,
       },
       {
         path: "/ranking",
-        element: <Main />,
+        element: <Ranking />,
       },
       {
         path: "/community",
-        element: <Main />,
+        element: <Community />,
       },
       {
         path: "/notices",
-        element: <Main />,
+        element: <Notices />,
       },
     ],
   },

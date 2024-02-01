@@ -8,7 +8,7 @@ export const infoData = [
   {
     name: "지뢰찾기",
     description: "지뢰찾기 게임 입니다.",
-    endpoint: "/mine",
+    endpoint: "/minesweeper",
     imgUrl: "",
   },
   {

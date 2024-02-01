@@ -10,3 +10,14 @@ export const PageContainer = styled.div`
   justify-content: start;
   align-items: center;
 `;
+
+export const MainContainer = styled.div`
+  width: 100%;
+  max-width: 1170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+
+  border: 1px solid red;
+`;

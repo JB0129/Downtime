@@ -4,7 +4,7 @@ export const HeaderContainer = styled.header`
   position: sticky;
   top: 0;
   width: 100vw;
-  height: 110px;
+  height: 95px;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -34,7 +34,7 @@ export const LogoImg = styled.img``;
 export const Navs = styled.nav`
   background-color: ${({ theme }) => theme.style.headerColor};
   width: 100%;
-  height: 55px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
