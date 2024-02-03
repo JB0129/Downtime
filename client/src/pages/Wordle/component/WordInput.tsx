@@ -1,62 +1,30 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Words, Word, Letter, LetterBox } from "./../Wordle.style";
+import React, { useEffect, useState } from "react";
+import { Words, Word, Letter } from "./../Wordle.style";
 
 interface OwnProps {
-  solve: string;
-  handleMoreChance: () => void;
+  isWord: string[];
 }
 
-const WordInput: React.FC<OwnProps> = ({ solve, handleMoreChance }) => {
-  const [isWord, setWord] = useState<string[]>([]);
-  const [complete, setComplete] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (!complete) {
-      window.onkeydown = (e) => {
-        if (/[a-zA-Z]/.test(e.key) && e.key.length === 1 && isWord.length < 5) {
-          console.log(e.key);
-          setWord((isWord) => [...isWord, e.key.toUpperCase()]);
-        }
-        if (e.key === "Backspace" && isWord.length > 0) {
-          setWord((isWord) => isWord.slice(0, isWord.length - 1));
-        }
-        if (e.key === "Enter" && isWord.length === 5) {
-          setComplete(true);
-        }
-      };
-    }
-  }, [isWord]);
-
-  useEffect(() => {
-    if (complete) {
-      const answer = isWord.join("");
-      if (solve.toUpperCase() !== answer) {
-        handleMoreChance();
-      } else {
-        alert("정답입니다!");
-      }
-    }
-  }, [complete]);
-
+const WordInput: React.FC<OwnProps> = ({ isWord }) => {
   return (
     <div>
       <Words>
         <Word>
-          <LetterBox>
+          <Letter>
             <div>{isWord[0]}</div>
-          </LetterBox>
-          <LetterBox>
+          </Letter>
+          <Letter>
             <div>{isWord[1]}</div>
-          </LetterBox>
-          <LetterBox>
+          </Letter>
+          <Letter>
             <div>{isWord[2]}</div>
-          </LetterBox>
-          <LetterBox>
+          </Letter>
+          <Letter>
             <div>{isWord[3]}</div>
-          </LetterBox>
-          <LetterBox>
+          </Letter>
+          <Letter>
             <div>{isWord[4]}</div>
-          </LetterBox>
+          </Letter>
         </Word>
       </Words>
     </div>

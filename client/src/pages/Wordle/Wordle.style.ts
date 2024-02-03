@@ -15,15 +15,7 @@ export const Word = styled.li`
   align-items: center;
 `;
 
-export const Letter = styled.input`
-  /* background-color: ${({ theme }) => theme.style.backgroundColor}; */
-  border: 1px solid black;
-  width: 70px;
-  height: 70px;
-  text-align: center;
-`;
-
-export const LetterBox = styled.div`
+export const Letter = styled.div`
   /* background-color: ${({ theme }) => theme.style.backgroundColor}; */
   border: 1px solid black;
   width: 70px;
