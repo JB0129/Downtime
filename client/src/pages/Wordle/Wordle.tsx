@@ -1,54 +1,62 @@
 import React, { useEffect, useState } from "react";
 import WordInput from "./component/WordInput";
 import Keyboard from "./component/Keyboard/Keyboard";
+import { MainContainer } from "../../assets/layouts/layout.style";
+import Answer from "./component/Answer";
 
 const solve = "happy";
 
 const Wordle: React.FC = () => {
-  const [times, setTimes] = useState([1]);
-  const handleMoreChance = () =>
-    setTimes((times) => [...times, times.length + 1]);
+  const [isAnswer, setAnswer] = useState<Array<string>[]>([]); // 입력된 오답 Line
+  const [isWord, setWord] = useState<string[]>([]); // 현재 입력중인 Line
+  const [complete, setComplete] = useState<boolean>(false); // 정답 유무
 
-  const [isWord, setWord] = useState<string[]>([]);
-  const [complete, setComplete] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (!complete) {
-      window.onkeydown = (e) => {
-        if (/[a-zA-Z]/.test(e.key) && e.key.length === 1 && isWord.length < 5) {
-          console.log(e.key);
-          setWord((isWord) => [...isWord, e.key.toUpperCase()]);
-        }
-        if (e.key === "Backspace" && isWord.length > 0) {
-          setWord((isWord) => isWord.slice(0, isWord.length - 1));
-        }
-        if (e.key === "Enter" && isWord.length === 5) {
-          setComplete(true);
-        }
-      };
+  const insertWord = (key: string) => {
+    if (/[a-zA-Z]/.test(key) && key.length === 1 && isWord.length < 5) {
+      setWord((isWord) => [...isWord, key.toUpperCase()]);
+      return;
     }
-  }, [isWord]);
-
-  useEffect(() => {
-    if (complete) {
+    if ((key === "Backspace" || key === "←") && isWord.length > 0) {
+      setWord((isWord) => isWord.slice(0, isWord.length - 1));
+      return;
+    }
+    if (key === "Enter" && isWord.length < 5) {
+      alert("빈칸을 채워주세요.");
+      return;
+    }
+    if (key === "Enter" && isWord.length === 5) {
+      if (complete) {
+        alert("이미 정답을 맞췄습니다.");
+        return;
+      }
       const answer = isWord.join("");
       if (solve.toUpperCase() !== answer) {
-        handleMoreChance();
+        setAnswer((isAnswer) => [...isAnswer, isWord]);
+        setWord([]);
+        return;
       } else {
+        setComplete(true);
+        setAnswer((isAnswer) => [...isAnswer, isWord]);
         alert("정답입니다!");
+        return;
       }
     }
-  }, [complete]);
+  };
+
+  useEffect(() => {
+    window.onkeydown = (e) => insertWord(e.key);
+  }, [isWord]);
 
   return (
-    <div>
+    <MainContainer>
       <div>
-        {times.map((times: number) => (
-          <WordInput key={times} isWord={isWord} />
+        {isAnswer.map((word, idx) => (
+          <Answer key={idx} word={word} isAnswer={isAnswer} />
         ))}
+        {!complete && <WordInput isWord={isWord} />}
       </div>
-      {/* <Keyboard /> */}
-    </div>
+      <Keyboard insertWord={insertWord} isAnswer={isAnswer} />
+    </MainContainer>
   );
 };
 

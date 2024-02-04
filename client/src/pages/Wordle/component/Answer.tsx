@@ -2,31 +2,32 @@ import React from "react";
 import { Words, Word, Letter } from "./../Wordle.style";
 
 interface OwnProps {
-  isWord: string[];
+  word: string[];
+  isAnswer: Array<string>[];
 }
 
-const WordInput: React.FC<OwnProps> = ({ isWord }) => {
+const Answer: React.FC<OwnProps> = ({ word }) => {
   return (
     <Words>
       <Word>
         <Letter>
-          <div>{isWord[0]}</div>
+          <div>{word[0]}</div>
         </Letter>
         <Letter>
-          <div>{isWord[1]}</div>
+          <div>{word[1]}</div>
         </Letter>
         <Letter>
-          <div>{isWord[2]}</div>
+          <div>{word[2]}</div>
         </Letter>
         <Letter>
-          <div>{isWord[3]}</div>
+          <div>{word[3]}</div>
         </Letter>
         <Letter>
-          <div>{isWord[4]}</div>
+          <div>{word[4]}</div>
         </Letter>
       </Word>
     </Words>
   );
 };
 
-export default WordInput;
+export default Answer;

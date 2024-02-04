@@ -1,28 +1,44 @@
 import React from "react";
 import { KeyLine, KeyboardContainer, Keys } from "./Keyboard.style";
 
-const Keyboard: React.FC = () => {
-  const topKey = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "←"];
-  const middleKey = ["a", "s", "d", "f", "g", "h", "j", "k", "l", "Enter"];
-  const bottomKey = ["z", "x", "c", "v", "b", "n", "m"];
+interface OwnProps {
+  insertWord: (key: any) => void;
+  isAnswer: Array<string>[];
+}
+
+const Keyboard: React.FC<OwnProps> = ({ insertWord, isAnswer }) => {
+  const topKey = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
+  const middleKey = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
+  const bottomKey = ["←", "Z", "X", "C", "V", "B", "N", "M", "Enter"];
+
+  const handleInsertWord = (e: React.MouseEvent<HTMLButtonElement>) => {
+    insertWord(e.currentTarget.textContent);
+  };
+
+  const checkAnswer = isAnswer.join();
+  console.log(checkAnswer);
 
   return (
     <KeyboardContainer>
-      {
-        <KeyLine>
-          {topKey.map((el, idx) => (
-            <Keys key={idx}>{el}</Keys>
-          ))}
-        </KeyLine>
-      }
+      <KeyLine>
+        {topKey.map((el, idx) => (
+          <Keys key={idx} onClick={handleInsertWord}>
+            {el}
+          </Keys>
+        ))}
+      </KeyLine>
       <KeyLine>
         {middleKey.map((el, idx) => (
-          <Keys key={idx}>{el}</Keys>
+          <Keys key={idx} onClick={handleInsertWord}>
+            {el}
+          </Keys>
         ))}
       </KeyLine>
       <KeyLine>
         {bottomKey.map((el, idx) => (
-          <Keys key={idx}>{el}</Keys>
+          <Keys key={idx} onClick={handleInsertWord}>
+            {el}
+          </Keys>
         ))}
       </KeyLine>
     </KeyboardContainer>

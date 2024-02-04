@@ -7,6 +7,7 @@ declare module "styled-components" {
       headerColor: string;
       backgroundColor: string;
       color: string;
+      wordle_letter_background: string;
     };
   }
 }

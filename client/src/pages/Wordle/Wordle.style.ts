@@ -16,11 +16,14 @@ export const Word = styled.li`
 `;
 
 export const Letter = styled.div`
-  /* background-color: ${({ theme }) => theme.style.backgroundColor}; */
-  border: 1px solid black;
+  background-color: ${({ theme }) => theme.style.wordle_letter_background};
   width: 70px;
   height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+
+  border: 1px solid black;
 `;
