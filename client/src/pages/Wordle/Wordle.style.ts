@@ -1,7 +1,18 @@
 import styled from "styled-components";
 
+// background-color: ${({ theme }) => theme.style.backgroundColor};
+
+export const WordleContainer = styled.div`
+  width: 100%;
+  margin: 40px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+`;
+
 export const Words = styled.ul`
-  /* background-color: ${({ theme }) => theme.style.backgroundColor}; */
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -9,10 +20,11 @@ export const Words = styled.ul`
 `;
 
 export const Word = styled.li`
-  /* background-color: ${({ theme }) => theme.style.backgroundColor}; */
+  width: 100%;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
+  margin: 5px 0px;
 `;
 
 export const Letter = styled.div<{ correct?: string }>`
@@ -24,26 +36,37 @@ export const Letter = styled.div<{ correct?: string }>`
         : correct === "ambiguous"
           ? "rgb(253, 244, 126)"
           : "rgb(143, 143, 143)"};
-  width: 70px;
-  height: 70px;
+  border: 2px solid rgb(200, 200, 200);
+  width: 100%;
+  max-width: 70px;
+  aspect-ratio: 1/1;
+  margin: 0px 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 36px;
   font-weight: 600;
 
-  border: 1px solid black;
+  /* // Start the shake animation and make the animation last for 0.5 seconds
+  animation: shake 0.2s;
+  // When the animation is finished, start again
+  animation-iteration-count: 2;
+
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(5px);
+    }
+    50% {
+      transform: translateX(-5px);
+    }
+    75% {
+      transform: translateX(5px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  } */
 `;
-
-/*
-
-const solve =  [H, A, P, P, Y];
-
-const word = [A, H, P, Y, P];
-
-solve 중에서 word와 같은자리에 있는 같은 알파벳 x하기
-남은 알파벳 중에 같은 알파벳이 있는지 체크
-
-
-
-*/

@@ -12,6 +12,7 @@ export const HeaderContainer = styled.header`
 `;
 
 export const HeaderLine = styled.div`
+  background-color: ${({ theme }) => theme.style.backgroundColor};
   width: 100%;
   max-width: 1170px;
   height: 55px;
@@ -46,4 +47,5 @@ export const Nav = styled.button`
   height: 100%;
   font-size: 16px;
   font-weight: bold;
+  color: ${({ theme }) => theme.style.color};
 `;

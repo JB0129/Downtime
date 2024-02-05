@@ -3,6 +3,9 @@ import WordInput from "./component/WordInput";
 import Keyboard from "./component/Keyboard/Keyboard";
 import { MainContainer } from "../../assets/layouts/layout.style";
 import Answer from "./component/Answer";
+import axios from "axios";
+import { WordleContainer } from "./Wordle.style";
+import { GameTitle } from "../../assets/typography/typography.style";
 
 export const solve = "HAPPY";
 
@@ -47,19 +50,41 @@ const Wordle: React.FC = () => {
     window.onkeydown = (e) => insertWord(e.key);
   }, [isWord]);
 
-  const papago = () => {
-    return axios.post("")
-  }
+  useEffect(() => {
+    if (isAnswer.length >= 6) {
+      setComplete(true);
+    }
+  }, [isAnswer]);
+
+  // 단어 검사하는 API
+  // const clientId = process.env.CLIENT_ID;
+  // const clientSecret = process.env.CLIENT_SECRET;
+
+  // const url = "https://openapi.naver.com/v1/papago/detectLangs";
+
+  // const papago = () => {
+  //   return axios
+  //     .post(url, "happy", {
+  //       headers: {
+  //         "X-Naver-Client-Id": clientId,
+  //         "X-Naver-Client-Secret": clientSecret,
+  //       },
+  //     })
+  //     .then((res) => console.log(res))
+  //     .catch((err) => console.log(err));
+  // };
 
   return (
     <MainContainer>
-      <div>
+      <GameTitle>
+        <span>Wordle</span>
+      </GameTitle>
+      <WordleContainer>
         {isAnswer.map((word, idx) => (
           <Answer key={idx} word={word} />
         ))}
         {!complete && <WordInput isWord={isWord} />}
-        <button>단어 검색</button>
-      </div>
+      </WordleContainer>
       <Keyboard insertWord={insertWord} isAnswer={isAnswer} />
     </MainContainer>
   );
