@@ -4,7 +4,7 @@ import Keyboard from "./component/Keyboard/Keyboard";
 import { MainContainer } from "../../assets/layouts/layout.style";
 import Answer from "./component/Answer";
 
-const solve = "happy";
+export const solve = "HAPPY";
 
 const Wordle: React.FC = () => {
   const [isAnswer, setAnswer] = useState<Array<string>[]>([]); // 입력된 오답 Line
@@ -30,7 +30,7 @@ const Wordle: React.FC = () => {
         return;
       }
       const answer = isWord.join("");
-      if (solve.toUpperCase() !== answer) {
+      if (solve !== answer) {
         setAnswer((isAnswer) => [...isAnswer, isWord]);
         setWord([]);
         return;
@@ -47,13 +47,18 @@ const Wordle: React.FC = () => {
     window.onkeydown = (e) => insertWord(e.key);
   }, [isWord]);
 
+  const papago = () => {
+    return axios.post("")
+  }
+
   return (
     <MainContainer>
       <div>
         {isAnswer.map((word, idx) => (
-          <Answer key={idx} word={word} isAnswer={isAnswer} />
+          <Answer key={idx} word={word} />
         ))}
         {!complete && <WordInput isWord={isWord} />}
+        <button>단어 검색</button>
       </div>
       <Keyboard insertWord={insertWord} isAnswer={isAnswer} />
     </MainContainer>

@@ -18,7 +18,10 @@ export const KeyLine = styled.div`
   align-items: center;
 `;
 
-export const Keys = styled.button`
+export const Keys = styled.button<{ correct?: boolean }>`
+  /* background-color: ${({ theme }) => theme.style.backgroundColor}; */
+  background-color: ${(correct) =>
+    correct ? "rgb(220, 220, 220)" : "rgb(250, 250, 250)"};
   flex: 1 0 auto;
   min-width: 45px;
   height: 45px;

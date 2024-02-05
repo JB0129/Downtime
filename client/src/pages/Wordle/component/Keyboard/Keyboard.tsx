@@ -1,5 +1,6 @@
 import React from "react";
 import { KeyLine, KeyboardContainer, Keys } from "./Keyboard.style";
+import { solve } from "../../Wordle";
 
 interface OwnProps {
   insertWord: (key: any) => void;
@@ -15,28 +16,27 @@ const Keyboard: React.FC<OwnProps> = ({ insertWord, isAnswer }) => {
     insertWord(e.currentTarget.textContent);
   };
 
-  const checkAnswer = isAnswer.join();
-  console.log(checkAnswer);
+  const correct = true;
 
   return (
     <KeyboardContainer>
       <KeyLine>
         {topKey.map((el, idx) => (
-          <Keys key={idx} onClick={handleInsertWord}>
+          <Keys key={idx} onClick={handleInsertWord} correct={correct}>
             {el}
           </Keys>
         ))}
       </KeyLine>
       <KeyLine>
         {middleKey.map((el, idx) => (
-          <Keys key={idx} onClick={handleInsertWord}>
+          <Keys key={idx} onClick={handleInsertWord} correct={correct}>
             {el}
           </Keys>
         ))}
       </KeyLine>
       <KeyLine>
         {bottomKey.map((el, idx) => (
-          <Keys key={idx} onClick={handleInsertWord}>
+          <Keys key={idx} onClick={handleInsertWord} correct={correct}>
             {el}
           </Keys>
         ))}
