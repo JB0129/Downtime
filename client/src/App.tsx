@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       {
-        path: "/",
+        path: "/login",
         element: <Login />,
       },
       {
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         element: <SignUp />,
       },
       {
-        path: "/main",
+        path: "/",
         element: <Main />,
       },
       {

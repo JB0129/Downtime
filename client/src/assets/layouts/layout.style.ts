@@ -14,11 +14,12 @@ export const PageContainer = styled.div`
 export const MainContainer = styled.div`
   width: 100%;
   max-width: 1170px;
+  margin-top: 40px;
   padding: 20px 0px;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
 
-  border: 1px solid ${({ theme }) => theme.style.color};
+  border: 1px solid ${({ theme }) => theme.style.mainBorder};
 `;

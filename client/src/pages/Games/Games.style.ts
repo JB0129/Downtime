@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const GameLists = styled.div`
-  width: 100%;
+  width: 90%;
+  margin-top: 40px;
   padding: 20px;
   display: grid;
-  gap: 20px;
+  gap: 30px;
   justify-items: center;
 
   // 데스크탑
@@ -22,12 +23,10 @@ export const GameLists = styled.div`
   @media screen and (max-width: 500px) {
     grid-template-columns: repeat(1, 1fr);
   }
-
-  border: 1px solid blue;
 `;
 
 export const GameList = styled.div`
-  width: 220px;
+  width: 200px;
 `;
 
 export const GameContent = styled.button`
@@ -60,4 +59,7 @@ export const GameDetail = styled.div`
   padding: 5px;
   font-size: 12px;
   text-align: start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;

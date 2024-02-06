@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-// background-color: ${({ theme }) => theme.style.backgroundColor};
-
 export const WordleContainer = styled.div`
   width: 100%;
   margin: 40px 0px;

@@ -56,7 +56,6 @@ a{
   text-decoration: none
 }
 button{
-  background-color: rgb(250, 250, 250);
   border: none;
   cursor: pointer;
 }

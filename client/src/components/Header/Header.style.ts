@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { ReactComponent as Downtime } from "./../../assets/images/Downtime.svg";
+import { ReactComponent as Person } from "./../../assets/images/Person.svg";
 
 export const HeaderContainer = styled.header`
   position: sticky;
@@ -23,14 +25,14 @@ export const HeaderLine = styled.div`
   align-items: center;
 `;
 
-export const Logo = styled.button`
-  width: 150px;
+export const Logo = styled(Downtime)`
+  padding: 0px 10px;
   height: 100%;
-
-  border: 1px solid black;
+  cursor: pointer;
+  path {
+    fill: white;
+  }
 `;
-
-export const LogoImg = styled.img``;
 
 export const Navs = styled.nav`
   background-color: ${({ theme }) => theme.style.headerColor};
@@ -48,4 +50,39 @@ export const Nav = styled.button`
   font-size: 16px;
   font-weight: bold;
   color: ${({ theme }) => theme.style.color};
+`;
+
+export const OptionBox = styled.div`
+  display: flex;
+  justify-content: start;
+  align-items: center;
+`;
+
+export const Login = styled.button`
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.style.headerColor};
+`;
+
+export const ProFileImg = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+
+export const UserUnknown = styled(Person)`
+  width: 90%;
+  height: 90%;
+  path {
+    fill: ${({ theme }) => theme.style.backgroundColor};
+  }
 `;

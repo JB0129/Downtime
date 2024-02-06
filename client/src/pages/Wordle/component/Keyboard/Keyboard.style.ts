@@ -39,12 +39,3 @@ export const Keys = styled.button<{ correct?: string }>`
   &:hover {
   }
 `;
-
-/*
-isAnswer = [[A, A, A, A, A], [F, F, F, F, F]]
-
-solve = [H, A, P, P, Y]
-
-
-
-*/

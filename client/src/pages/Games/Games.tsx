@@ -10,30 +10,30 @@ import {
 } from "./Games.style";
 import { MainContainer } from "./../../assets/layouts/layout.style";
 import { infoData } from "./information";
+import { GameTitle } from "../../assets/typography/typography.style";
 
 const Games: React.FC = () => {
   const navigate = useNavigate();
 
   return (
     <MainContainer>
-      {/* <div>
-        <input type="text" placeholder="검색어를 입력해주세요." />
-        <button>검색</button>
-      </div> */}
-      {/* <div>
-        <button>싱글</button>
-        <button>멀티</button>
-      </div> */}
+      <GameTitle>
+        <span>Games</span>
+      </GameTitle>
       <GameLists>
-        {infoData.map((item, idx) => (
-          <GameList key={idx}>
-            <GameContent onClick={() => navigate(item.endpoint)}>
-              {<GameImg src={item.imgUrl && item.imgUrl} alt="" />}
-              <GameName>{item.name}</GameName>
-              <GameDetail>{item.description}</GameDetail>
-            </GameContent>
-          </GameList>
-        ))}
+        {infoData.map((item, idx) => {
+          if (item.name) {
+            return (
+              <GameList key={idx}>
+                <GameContent onClick={() => navigate(item.endpoint)}>
+                  {/* {<GameImg src={item.imgUrl && item.imgUrl} alt="" />} */}
+                  <GameName>{item.name}</GameName>
+                  <GameDetail>{item.description}</GameDetail>
+                </GameContent>
+              </GameList>
+            );
+          }
+        })}
       </GameLists>
     </MainContainer>
   );

@@ -8,6 +8,7 @@ export const lightTheme: DefaultTheme = {
     headerColor: "rgb(172, 194, 245)",
     backgroundColor: "rgb(210, 223, 254)",
     color: "rgb(0, 0, 0)",
+    mainBorder: "rgb(0, 0, 0)",
     wordle_letter_background: "rgb(250, 250, 250)",
   },
 };
@@ -19,6 +20,7 @@ export const darkTheme: DefaultTheme = {
     headerColor: "rgb(47, 54, 53)",
     backgroundColor: "rgb(70, 78, 85)",
     color: "rgb(250, 250, 250)",
+    mainBorder: "rgb(250, 250, 250)",
     wordle_letter_background: "rgb(70, 78, 85)",
   },
 };
@@ -26,5 +28,5 @@ export const darkTheme: DefaultTheme = {
 // 다크모드 recoil
 export const themeAtom = atom<DefaultTheme>({
   key: "theme",
-  default: lightTheme,
+  default: darkTheme,
 });
