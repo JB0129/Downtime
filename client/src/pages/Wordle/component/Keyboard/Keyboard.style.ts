@@ -37,5 +37,12 @@ export const Keys = styled.button<{ correct?: string }>`
   color: ${({ theme }) => theme.style.color};
 
   &:hover {
+    background-color: ${({ theme, correct }) =>
+      correct ? "none" : theme.style.headerColor};
+  }
+
+  &:active {
+    background-color: ${({ theme, correct }) =>
+      correct ? "none" : theme.style.backgroundColor};
   }
 `;

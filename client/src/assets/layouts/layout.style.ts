@@ -22,4 +22,5 @@ export const MainContainer = styled.div`
   align-items: center;
 
   border: 1px solid ${({ theme }) => theme.style.mainBorder};
+  border-radius: 24px;
 `;

@@ -30,7 +30,7 @@ export const Logo = styled(Downtime)`
   height: 100%;
   cursor: pointer;
   path {
-    fill: white;
+    fill: ${({ theme }) => theme.style.color};
   }
 `;
 

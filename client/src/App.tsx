@@ -18,6 +18,8 @@ import Ranking from "./pages/Ranking/Ranking";
 import Community from "./pages/Community/Community";
 import Notices from "./pages/Notices/Notices";
 import Minesweeper from "./pages/Minesweeper/Minesweeper";
+import AlertModal from "./assets/modal/Alert";
+import { alertAtom } from "./recoil/atoms";
 
 const router = createBrowserRouter([
   {
@@ -29,65 +31,67 @@ const router = createBrowserRouter([
     ),
     errorElement: <NotFound />,
     children: [
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/signup",
-        element: <SignUp />,
-      },
-      {
-        path: "/",
-        element: <Main />,
-      },
-      {
-        path: "/games",
-        element: <Games />,
-      },
+      // {
+      //   path: "/login",
+      //   element: <Login />,
+      // },
+      // {
+      //   path: "/signup",
+      //   element: <SignUp />,
+      // },
+      // {
+      //   path: "/",
+      //   element: <Main />,
+      // },
+      // {
+      //   path: "/games",
+      //   element: <Games />,
+      // },
       {
         path: "/wordle",
         element: <Wordle />,
       },
-      {
-        path: "/minesweeper",
-        element: <Minesweeper />,
-      },
-      {
-        path: "/jumping",
-        element: <Jumping />,
-      },
-      {
-        path: "/pingpong",
-        element: <Pingpong />,
-      },
-      {
-        path: "/quiz",
-        element: <Quiz />,
-      },
-      {
-        path: "/ranking",
-        element: <Ranking />,
-      },
-      {
-        path: "/community",
-        element: <Community />,
-      },
-      {
-        path: "/notices",
-        element: <Notices />,
-      },
+      // {
+      //   path: "/minesweeper",
+      //   element: <Minesweeper />,
+      // },
+      // {
+      //   path: "/jumping",
+      //   element: <Jumping />,
+      // },
+      // {
+      //   path: "/pingpong",
+      //   element: <Pingpong />,
+      // },
+      // {
+      //   path: "/quiz",
+      //   element: <Quiz />,
+      // },
+      // {
+      //   path: "/ranking",
+      //   element: <Ranking />,
+      // },
+      // {
+      //   path: "/community",
+      //   element: <Community />,
+      // },
+      // {
+      //   path: "/notices",
+      //   element: <Notices />,
+      // },
     ],
   },
 ]);
 
 const App: React.FC = () => {
   const theme = useRecoilValue(themeAtom);
+  const alert = useRecoilValue(alertAtom);
 
   return (
     <ThemeProvider theme={theme}>
       <PageContainer>
         <RouterProvider router={router} />
+        {alert && <AlertModal />}
       </PageContainer>
     </ThemeProvider>
   );

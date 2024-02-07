@@ -3,7 +3,6 @@ import WordInput from "./component/WordInput";
 import Keyboard from "./component/Keyboard/Keyboard";
 import { MainContainer } from "../../assets/layouts/layout.style";
 import Answer from "./component/Answer";
-import axios from "axios";
 import { WordleContainer } from "./Wordle.style";
 import { GameTitle } from "../../assets/typography/typography.style";
 
@@ -13,6 +12,7 @@ const Wordle: React.FC = () => {
   const [isAnswer, setAnswer] = useState<Array<string>[]>([]); // 입력된 오답 Line
   const [isWord, setWord] = useState<string[]>([]); // 현재 입력중인 Line
   const [complete, setComplete] = useState<boolean>(false); // 정답 유무
+  const [effect, setEffect] = useState<string>("");
 
   const insertWord = (key: string) => {
     if (/[a-zA-Z]/.test(key) && key.length === 1 && isWord.length < 5) {
@@ -24,7 +24,11 @@ const Wordle: React.FC = () => {
       return;
     }
     if (key === "Enter" && isWord.length < 5) {
-      alert("빈칸을 채워주세요.");
+      // alert("빈칸을 채워주세요.");
+      setEffect("wrong");
+      setTimeout(() => {
+        setEffect("");
+      }, 200);
       return;
     }
     if (key === "Enter" && isWord.length === 5) {
@@ -40,6 +44,7 @@ const Wordle: React.FC = () => {
       } else {
         setComplete(true);
         setAnswer((isAnswer) => [...isAnswer, isWord]);
+        setEffect("success");
         alert("정답입니다!");
         return;
       }
@@ -81,9 +86,9 @@ const Wordle: React.FC = () => {
       </GameTitle>
       <WordleContainer>
         {isAnswer.map((word, idx) => (
-          <Answer key={idx} word={word} />
+          <Answer key={idx} word={word} complete={complete} />
         ))}
-        {!complete && <WordInput isWord={isWord} />}
+        {!complete && <WordInput isWord={isWord} effect={effect} />}
       </WordleContainer>
       <Keyboard insertWord={insertWord} isAnswer={isAnswer} />
     </MainContainer>

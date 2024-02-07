@@ -45,12 +45,160 @@ export const Letter = styled.div<{ correct?: string }>`
   font-size: 36px;
   font-weight: 600;
 
-  /* // Start the shake animation and make the animation last for 0.5 seconds
-  animation: shake 0.2s;
-  // When the animation is finished, start again
-  animation-iteration-count: 2;
+  animation: fadein 1s;
+  -moz-animation: fadein 1s; /* Firefox */
+  -webkit-animation: fadein 1s; /* Safari and Chrome */
+  -o-animation: fadein 1s; /* Opera */
 
-  @keyframes shake {
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @-moz-keyframes fadein {
+    /* Firefox */
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes fadein {
+    /* Safari and Chrome */
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @-o-keyframes fadein {
+    /* Opera */
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  &.correct {
+    animation: correct 1s;
+    -moz-animation: correct 1s; /* Firefox */
+    -webkit-animation: correct 1s; /* Safari and Chrome */
+    -o-animation: correct 1s; /* Opera */
+    animation-iteration-count: 2;
+  }
+
+  &.correct:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  &.correct:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  &.correct:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+  &.correct:nth-child(5) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes correct {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(10px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    75% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  @-moz-keyframes correct {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(10px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    75% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  @-webkit-keyframes correct {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(10px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    75% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  @-o-keyframes correct {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(10px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    75% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+`;
+
+export const LetterInput = styled.div<{ correct?: string }>`
+  background-color: ${({ theme }) => theme.style.wordle_letter_background};
+  border: 2px solid rgb(200, 200, 200);
+  width: 100%;
+  max-width: 70px;
+  aspect-ratio: 1/1;
+  margin: 0px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-weight: 600;
+
+  &.wrong {
+    animation: wrong 0.2s;
+    -moz-animation: wrong 0.2s; /* Firefox */
+    -webkit-animation: wrong 0.2s; /* Safari and Chrome */
+    -o-animation: wrong 0.2s; /* Opera */
+    animation-iteration-count: 2;
+  }
+
+  @keyframes wrong {
     0% {
       transform: translateX(0);
     }
@@ -66,5 +214,56 @@ export const Letter = styled.div<{ correct?: string }>`
     100% {
       transform: translateX(0);
     }
-  } */
+  }
+  @-moz-keyframes wrong {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(5px);
+    }
+    50% {
+      transform: translateX(-5px);
+    }
+    75% {
+      transform: translateX(5px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @-webkit-keyframes wrong {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(5px);
+    }
+    50% {
+      transform: translateX(-5px);
+    }
+    75% {
+      transform: translateX(5px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @-o-keyframes wrong {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(5px);
+    }
+    50% {
+      transform: translateX(-5px);
+    }
+    75% {
+      transform: translateX(5px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 `;

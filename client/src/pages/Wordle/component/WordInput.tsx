@@ -1,29 +1,30 @@
 import React from "react";
-import { Words, Word, Letter } from "./../Wordle.style";
+import { Words, Word, LetterInput } from "./../Wordle.style";
 
 interface OwnProps {
   isWord: string[];
+  effect: string;
 }
 
-const WordInput: React.FC<OwnProps> = ({ isWord }) => {
+const WordInput: React.FC<OwnProps> = ({ isWord, effect }) => {
   return (
     <Words>
       <Word>
-        <Letter>
+        <LetterInput className={effect}>
           <div>{isWord[0]}</div>
-        </Letter>
-        <Letter>
+        </LetterInput>
+        <LetterInput className={effect}>
           <div>{isWord[1]}</div>
-        </Letter>
-        <Letter>
+        </LetterInput>
+        <LetterInput className={effect}>
           <div>{isWord[2]}</div>
-        </Letter>
-        <Letter>
+        </LetterInput>
+        <LetterInput className={effect}>
           <div>{isWord[3]}</div>
-        </Letter>
-        <Letter>
+        </LetterInput>
+        <LetterInput className={effect}>
           <div>{isWord[4]}</div>
-        </Letter>
+        </LetterInput>
       </Word>
     </Words>
   );
