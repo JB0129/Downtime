@@ -45,6 +45,7 @@ export const Letter = styled.div<{ correct?: string }>`
   font-size: 36px;
   font-weight: 600;
 
+  // 단어 입력 시 animation
   animation: fadein 1s;
   -moz-animation: fadein 1s; /* Firefox */
   -webkit-animation: fadein 1s; /* Safari and Chrome */
@@ -86,6 +87,7 @@ export const Letter = styled.div<{ correct?: string }>`
     }
   }
 
+  // 정답일 때 animation
   &.correct {
     animation: correct 1s;
     -moz-animation: correct 1s; /* Firefox */
@@ -94,6 +96,7 @@ export const Letter = styled.div<{ correct?: string }>`
     animation-iteration-count: 2;
   }
 
+  // 글자 순서대로 animation delay 적용
   &.correct:nth-child(2) {
     animation-delay: 0.1s;
   }
@@ -190,6 +193,7 @@ export const LetterInput = styled.div<{ correct?: string }>`
   font-size: 36px;
   font-weight: 600;
 
+  // 단어 5글자 모두 입력 안됐을때
   &.wrong {
     animation: wrong 0.2s;
     -moz-animation: wrong 0.2s; /* Firefox */

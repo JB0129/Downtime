@@ -48,6 +48,10 @@ const router = createBrowserRouter([
       //   element: <Games />,
       // },
       {
+        path: "/",
+        element: <Wordle />,
+      },
+      {
         path: "/wordle",
         element: <Wordle />,
       },
