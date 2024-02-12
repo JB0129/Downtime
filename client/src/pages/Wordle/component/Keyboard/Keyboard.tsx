@@ -1,6 +1,6 @@
 import React from "react";
 import { KeyLine, KeyboardContainer, Keys } from "./Keyboard.style";
-import { solve } from "../../Wordle";
+import { useGetWord } from "../../../../hooks/wordleHook";
 
 interface OwnProps {
   insertWord: (key: any) => void;
@@ -8,6 +8,8 @@ interface OwnProps {
 }
 
 const Keyboard: React.FC<OwnProps> = ({ insertWord, isAnswer }) => {
+  const { data: todayWord } = useGetWord();
+
   const topKey = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
   const middleKey = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
   const bottomKey = ["←", "Z", "X", "C", "V", "B", "N", "M", "Enter"];
@@ -18,8 +20,8 @@ const Keyboard: React.FC<OwnProps> = ({ insertWord, isAnswer }) => {
 
   // const ambiguous = (idx: number): any => {
   //   let count = 0;
-  //   for (let i = 0; i < solve.length; i++) {
-  //     if (i !== idx && word[idx] === solve[i] && solve[i] !== word[i]) {
+  //   for (let i = 0; i < todayWord.length; i++) {
+  //     if (i !== idx && word[idx] === todayWord[i] && todayWord[i] !== word[i]) {
   //       count += 1;
   //     }
   //   }
@@ -28,11 +30,11 @@ const Keyboard: React.FC<OwnProps> = ({ insertWord, isAnswer }) => {
 
   const handleCompare = (el: string) => {
     if (!isAnswer.join().includes(el)) return undefined;
-    if (!solve.includes(el)) return "incorrect";
+    if (!todayWord.includes(el)) return "incorrect";
     let count = 0;
     for (let i = 0; i < isAnswer.length; i++) {
-      for (let j = 0; j < solve.length; j++) {
-        if (isAnswer[i][j] === solve[j] && solve[j] === el) count += 1;
+      for (let j = 0; j < todayWord.length; j++) {
+        if (isAnswer[i][j] === todayWord[j] && todayWord[j] === el) count += 1;
       }
     }
     if (count > 0) return "correct";

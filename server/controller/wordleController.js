@@ -35,8 +35,9 @@ module.exports = {
               },
             }
           )
-          .then((response) => {
-            return res.status(201).json(response.data);
+          .then((data) => {
+            const message = data.data?.message;
+            return res.status(201).json(message.result);
           })
           .catch((err) => {
             return res.status(404).json(err.response.data);

@@ -1,5 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { getWord, postCheckWord } from "../service/wordleService";
+import { queryClient } from "..";
 
 export const useGetWord = () => {
   return useQuery({
@@ -11,12 +12,28 @@ export const useGetWord = () => {
   });
 };
 
-export const usePostWord = (word: string) => {
+export const usePostWord = (
+  word: string,
+  successFunc?: (res: any) => void,
+  failFunc?: () => void
+) => {
   return useMutation({
     mutationKey: ["CheckWord"],
     mutationFn: async () => {
       const response = await postCheckWord(word);
-      return response;
+      return response.translatedText;
+    },
+    onSuccess: (res) => {
+      //console.log(res);
+      queryClient.invalidateQueries({ queryKey: ["GetWord"] });
+      successFunc && successFunc(res);
+
+      return;
+    },
+    onError: (err) => {
+      console.log(err);
+      failFunc && failFunc();
+      return;
     },
   });
 };

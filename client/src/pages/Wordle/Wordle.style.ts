@@ -9,6 +9,12 @@ export const WordleContainer = styled.div`
   align-items: center;
 `;
 
+export const Msg = styled.div`
+  color: rgb(250, 100, 100);
+  font-size: 14px;
+  font-weight: 600;
+`;
+
 export const Words = styled.ul`
   width: 100%;
   display: flex;
