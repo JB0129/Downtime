@@ -1,4 +1,8 @@
-const words = require("./../repository/wordleList.ts");
+const axios = require("axios");
+const words = require("./../repository/wordleList");
+
+const dotenv = require("dotenv");
+dotenv.config();
 
 module.exports = {
   findWord: (req, res) => {
@@ -12,24 +16,33 @@ module.exports = {
     }
   },
   checkWord: (req, res) => {
-    // if (req.body) {
-    //   return res.status(201);
-    // }
-    
-    // 단어 검사하는 API
-    // const clientId = process.env.CLIENT_ID;
-    // const clientSecret = process.env.CLIENT_SECRET;
-    // const url = "https://openapi.naver.com/v1/papago/detectLangs";
-    // const papago = () => {
-    //   return axios
-    //     .post(url, "happy", {
-    //       headers: {
-    //         "X-Naver-Client-Id": clientId,
-    //         "X-Naver-Client-Secret": clientSecret,
-    //       },
-    //     })
-    //     .then((res) => console.log(res))
-    //     .catch((err) => console.log(err));
-    // };
+    if (req.body) {
+      const { word } = req.body;
+
+      // 단어 검사하는 API
+      const clientId = process.env.NAVER_CLIENT_ID;
+      const clientSecret = process.env.NAVER_CLIENT_SECRET;
+      const url = "https://openapi.naver.com/v1/papago/n2mt";
+      const papago = () => {
+        return axios
+          .post(
+            url,
+            { text: word, source: "en", target: "ko" },
+            {
+              headers: {
+                "X-Naver-Client-Id": clientId,
+                "X-Naver-Client-Secret": clientSecret,
+              },
+            }
+          )
+          .then((response) => {
+            return res.status(201).json(response.data);
+          })
+          .catch((err) => {
+            return res.status(404).json(err.response.data);
+          });
+      };
+      papago();
+    }
   },
 };

@@ -1,4 +1,4 @@
-const { findWord, checkWord } = require("./../controller/wordleController.ts");
+const { findWord, checkWord } = require("./../controller/wordleController");
 const express = require("express");
 const router = express.Router();
 

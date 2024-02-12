@@ -5,6 +5,7 @@ import { MainContainer } from "../../assets/layouts/layout.style";
 import Answer from "./component/Answer";
 import { WordleContainer } from "./Wordle.style";
 import { GameTitle } from "../../assets/typography/typography.style";
+import { useGetWord, usePostWord } from "../../hooks/wordleHook";
 
 export const solve = "HAPPY";
 
@@ -13,6 +14,11 @@ const Wordle: React.FC = () => {
   const [isWord, setWord] = useState<string[]>([]); // 현재 입력중인 Line
   const [complete, setComplete] = useState<boolean>(false); // 정답 유무
   const [effect, setEffect] = useState<string>("");
+
+  const { data: todayWord } = useGetWord();
+  const { mutate: checkWord } = usePostWord(isWord.join(""));
+
+  console.log(todayWord);
 
   const insertWord = (key: string) => {
     if (/[a-zA-Z]/.test(key) && key.length === 1 && isWord.length < 5) {
@@ -42,10 +48,11 @@ const Wordle: React.FC = () => {
         setWord([]);
         return;
       } else {
-        setComplete(true);
-        setAnswer((isAnswer) => [...isAnswer, isWord]);
-        setEffect("success");
-        alert("정답입니다!");
+        // setComplete(true);
+        // setAnswer((isAnswer) => [...isAnswer, isWord]);
+        // setEffect("success");
+        // alert("정답입니다!");
+        checkWord();
         return;
       }
     }
@@ -60,24 +67,6 @@ const Wordle: React.FC = () => {
       setComplete(true);
     }
   }, [isAnswer]);
-
-  // 단어 검사하는 API
-  // const clientId = process.env.CLIENT_ID;
-  // const clientSecret = process.env.CLIENT_SECRET;
-
-  // const url = "https://openapi.naver.com/v1/papago/detectLangs";
-
-  // const papago = () => {
-  //   return axios
-  //     .post(url, "happy", {
-  //       headers: {
-  //         "X-Naver-Client-Id": clientId,
-  //         "X-Naver-Client-Secret": clientSecret,
-  //       },
-  //     })
-  //     .then((res) => console.log(res))
-  //     .catch((err) => console.log(err));
-  // };
 
   return (
     <MainContainer>

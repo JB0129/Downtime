@@ -9,7 +9,7 @@ app.use(express.json({ strict: false }));
 
 const port = 8080;
 
-const wordle = require("./router/wordleRouter.ts");
+const wordle = require("./router/wordleRouter");
 app.use("/wordle", wordle);
 
 app.get("/", (req, res) => {
