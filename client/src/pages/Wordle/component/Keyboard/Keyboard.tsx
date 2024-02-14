@@ -5,9 +5,10 @@ import { useGetWord } from "../../../../hooks/wordleHook";
 interface OwnProps {
   insertWord: (key: any) => void;
   isAnswer: Array<string>[];
+  complete: boolean;
 }
 
-const Keyboard: React.FC<OwnProps> = ({ insertWord, isAnswer }) => {
+const Keyboard: React.FC<OwnProps> = ({ insertWord, isAnswer, complete }) => {
   const { data: todayWord } = useGetWord();
 
   const topKey = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
@@ -15,7 +16,7 @@ const Keyboard: React.FC<OwnProps> = ({ insertWord, isAnswer }) => {
   const bottomKey = ["←", "Z", "X", "C", "V", "B", "N", "M", "Enter"];
 
   const handleInsertWord = (e: React.MouseEvent<HTMLButtonElement>) => {
-    insertWord(e.currentTarget.textContent);
+    if (!complete) insertWord(e.currentTarget.textContent);
   };
 
   // const ambiguous = (idx: number): any => {
