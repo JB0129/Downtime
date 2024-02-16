@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
+import Answer from "./component/Answer";
 import WordInput from "./component/WordInput";
 import Keyboard from "./component/Keyboard/Keyboard";
-import { MainContainer } from "../../assets/layouts/layout.style";
-import Answer from "./component/Answer";
 import { Msg, WordleContainer } from "./Wordle.style";
-import { GameTitle } from "../../assets/typography/typography.style";
 import { useGetWord, usePostWord } from "../../hooks/wordleHook";
+import { MainContainer } from "../../assets/layouts/layout.style";
+import { GameTitle } from "../../assets/typography/typography.style";
 
 const Wordle: React.FC = () => {
   // 입력된 오답 단어 모음

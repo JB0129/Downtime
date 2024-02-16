@@ -19,16 +19,6 @@ const Keyboard: React.FC<OwnProps> = ({ insertWord, isAnswer, complete }) => {
     if (!complete) insertWord(e.currentTarget.textContent);
   };
 
-  // const ambiguous = (idx: number): any => {
-  //   let count = 0;
-  //   for (let i = 0; i < todayWord.length; i++) {
-  //     if (i !== idx && word[idx] === todayWord[i] && todayWord[i] !== word[i]) {
-  //       count += 1;
-  //     }
-  //   }
-  //   return count > 0;
-  // };
-
   const handleCompare = (el: string) => {
     if (!isAnswer.join().includes(el)) return undefined;
     if (!todayWord.includes(el)) return "incorrect";

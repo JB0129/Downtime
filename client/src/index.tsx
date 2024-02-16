@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
-import { GlobalStyle } from "./styles/GlobalStyles";
 import { RecoilRoot } from "recoil";
+import { isAxiosError } from "axios";
 import {
   QueryCache,
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-import { isAxiosError } from "axios";
+import App from "./App";
+import { GlobalStyle } from "./styles/GlobalStyles";
 
 export const queryClient = new QueryClient({
   defaultOptions: {
