@@ -16,7 +16,6 @@ import Pingpong from "./pages/Pingpong/Pingpong";
 import Jumping from "./pages/Jumping/Jumping";
 import Ranking from "./pages/Ranking/Ranking";
 import Community from "./pages/Community/Community";
-import Notices from "./pages/Notices/Notices";
 import Minesweeper from "./pages/Minesweeper/Minesweeper";
 import AlertModal from "./assets/modal/Alert";
 import { alertAtom } from "./recoil/atoms";
@@ -78,10 +77,6 @@ const router = createBrowserRouter([
       // {
       //   path: "/community",
       //   element: <Community />,
-      // },
-      // {
-      //   path: "/notices",
-      //   element: <Notices />,
       // },
     ],
   },

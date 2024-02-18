@@ -6,6 +6,8 @@ import { Msg, WordleContainer } from "./Wordle.style";
 import { useGetWord, usePostWord } from "../../hooks/wordleHook";
 import { MainContainer } from "../../assets/layouts/layout.style";
 import { GameTitle } from "../../assets/typography/typography.style";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
 
 const Wordle: React.FC = () => {
   // 입력된 오답 단어 모음
@@ -94,6 +96,7 @@ const Wordle: React.FC = () => {
     <MainContainer>
       <GameTitle>
         <span>Wordle</span>
+        <FontAwesomeIcon icon={faCircleQuestion} />
       </GameTitle>
       <WordleContainer>
         {isAnswer.map((word, idx) => (

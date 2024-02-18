@@ -45,14 +45,12 @@ const Header: React.FC = () => {
         <Nav onClick={() => navigate("/games")}>게임</Nav>
         <Nav onClick={() => navigate("/quiz")}>퀴즈</Nav>
         <Nav onClick={() => navigate("/ranking")}>랭킹</Nav>
-        <Nav onClick={() => navigate("/community")}>게시판</Nav>
-        <Nav onClick={() => navigate("/notices")}>공지사항</Nav> */}
+        <Nav onClick={() => navigate("/community")}>커뮤니티</Nav> */}
         <Nav onClick={() => handleAlert()}>홈</Nav>
         <Nav onClick={() => handleAlert()}>게임</Nav>
         <Nav onClick={() => handleAlert()}>퀴즈</Nav>
         <Nav onClick={() => handleAlert()}>랭킹</Nav>
-        <Nav onClick={() => handleAlert()}>게시판</Nav>
-        <Nav onClick={() => handleAlert()}>공지사항</Nav>
+        <Nav onClick={() => handleAlert()}>커뮤니티</Nav>
       </Navs>
     </HeaderContainer>
   );
