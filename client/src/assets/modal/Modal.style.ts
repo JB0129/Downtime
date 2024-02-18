@@ -17,10 +17,8 @@ export const ModalBackground = styled.div`
 `;
 
 export const ModalContainer = styled.div`
-  border: 1px solid rgb(215, 215, 215);
+  background-color: ${({ theme }) => theme.style.modal_backgroundColor};
   box-shadow: 1px 1px 5px 0.1px rgb(131, 131, 131);
-  background-color: white;
-  border: none;
   border-radius: 18px;
   width: 100%;
   max-width: 350px;
@@ -36,7 +34,9 @@ export const ModalContents = styled.div`
   width: 100%;
   min-height: 120px;
   padding: 20px;
+  color: ${({ theme }) => theme.style.color};
   text-align: center;
+  font-weight: 600;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,7 +56,9 @@ export const ModalBtn = styled.button`
   max-height: 50px;
   min-height: 50px;
   padding: 10px 0px;
+  color: ${({ theme }) => theme.style.color};
   text-align: center;
+  font-weight: 600;
   &:hover {
     background-color: rgb(215, 215, 215);
   }

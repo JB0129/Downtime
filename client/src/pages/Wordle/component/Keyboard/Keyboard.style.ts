@@ -20,7 +20,7 @@ export const KeyLine = styled.div`
 export const Keys = styled.button<{ correct?: string }>`
   background-color: ${({ theme, correct }) =>
     !correct
-      ? theme.style.wordle_letter_background
+      ? theme.style.wordle_letter_backgroundColor
       : correct === "correct"
         ? "rgb(253, 126, 149)"
         : correct === "ambiguous"
@@ -38,7 +38,7 @@ export const Keys = styled.button<{ correct?: string }>`
 
   &:hover {
     background-color: ${({ theme, correct }) =>
-      correct ? "none" : theme.style.headerColor};
+      correct ? "none" : theme.style.header_backgroundColor};
   }
 
   &:active {

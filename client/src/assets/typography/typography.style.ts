@@ -7,4 +7,7 @@ export const GameTitle = styled.div`
   font-size: 48px;
   font-weight: 600;
   padding: 30px 0px 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;

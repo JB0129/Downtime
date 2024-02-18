@@ -8,8 +8,13 @@ import { MainContainer } from "../../assets/layouts/layout.style";
 import { GameTitle } from "../../assets/typography/typography.style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
+import WordleManual from "./component/WordleManual";
 
 const Wordle: React.FC = () => {
+  // Wordle 설명서
+  const [menu, setMenu] = useState(true);
+  const handleMenu = () => setMenu(!menu);
+
   // 입력된 오답 단어 모음
   const [isAnswer, setAnswer] = useState<Array<string>[]>([]);
 
@@ -96,7 +101,11 @@ const Wordle: React.FC = () => {
     <MainContainer>
       <GameTitle>
         <span>Wordle</span>
-        <FontAwesomeIcon icon={faCircleQuestion} />
+        <FontAwesomeIcon
+          icon={faCircleQuestion}
+          className="question"
+          onClick={handleMenu}
+        />
       </GameTitle>
       <WordleContainer>
         {isAnswer.map((word, idx) => (
@@ -110,6 +119,7 @@ const Wordle: React.FC = () => {
         isAnswer={isAnswer}
         complete={complete}
       />
+      {menu && <WordleManual handleMenu={handleMenu} />}
     </MainContainer>
   );
 };

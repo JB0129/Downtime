@@ -56,6 +56,7 @@ a{
   text-decoration: none
 }
 button{
+  background: none;
   border: none;
   cursor: pointer;
 }

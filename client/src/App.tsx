@@ -19,6 +19,7 @@ import Community from "./pages/Community/Community";
 import Minesweeper from "./pages/Minesweeper/Minesweeper";
 import AlertModal from "./assets/modal/Alert";
 import { alertAtom } from "./recoil/atoms";
+import "./App.css";
 
 const router = createBrowserRouter([
   {

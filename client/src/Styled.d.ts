@@ -4,11 +4,12 @@ declare module "styled-components" {
   export interface DefaultTheme {
     value: string;
     style: {
-      headerColor: string;
+      header_backgroundColor: string;
       backgroundColor: string;
+      modal_backgroundColor: string;
       color: string;
-      mainBorder: string;
-      wordle_letter_background: string;
+      main_border: string;
+      wordle_letter_backgroundColor: string;
     };
   }
 }

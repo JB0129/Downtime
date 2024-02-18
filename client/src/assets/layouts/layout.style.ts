@@ -21,6 +21,6 @@ export const MainContainer = styled.div`
   justify-content: start;
   align-items: center;
 
-  border: 1px solid ${({ theme }) => theme.style.mainBorder};
+  border: 1px solid ${({ theme }) => theme.style.main_border};
   border-radius: 24px;
 `;

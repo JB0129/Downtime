@@ -35,7 +35,7 @@ export const Logo = styled(Downtime)`
 `;
 
 export const Navs = styled.nav`
-  background-color: ${({ theme }) => theme.style.headerColor};
+  background-color: ${({ theme }) => theme.style.header_backgroundColor};
   width: 100%;
   height: 40px;
   display: flex;
@@ -44,7 +44,7 @@ export const Navs = styled.nav`
 `;
 
 export const Nav = styled.button`
-  background-color: ${({ theme }) => theme.style.headerColor};
+  background-color: ${({ theme }) => theme.style.header_backgroundColor};
   width: 120px;
   height: 100%;
   font-size: 16px;
@@ -66,7 +66,7 @@ export const Login = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.style.headerColor};
+  background-color: ${({ theme }) => theme.style.header_backgroundColor};
 `;
 
 export const ProFileImg = styled.img`

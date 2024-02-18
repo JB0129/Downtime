@@ -35,7 +35,8 @@ const Header: React.FC = () => {
             isOn={theme.value === "light"}
             handleToggleFunc={toggleTheme}
           />
-          <Login onClick={() => navigate("/login")}>
+          {/* <Login onClick={() => navigate("/login")}> */}
+          <Login onClick={() => handleAlert()}>
             <UserUnknown />
           </Login>
         </OptionBox>

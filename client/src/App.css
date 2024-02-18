@@ -1,0 +1,14 @@
+.question {
+    width: 30px;
+    height: 30px;
+    margin: 15px 10px 0px 10px;
+    cursor: pointer;
+}
+
+.question:hover {
+    color: rgb(220, 220, 220);
+}
+
+.question:active {
+    color: rgb(200, 200, 200);
+}

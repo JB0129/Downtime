@@ -34,7 +34,7 @@ export const Word = styled.li`
 export const Letter = styled.div<{ correct?: string }>`
   background-color: ${({ theme, correct }) =>
     !correct
-      ? theme.style.wordle_letter_background
+      ? theme.style.wordle_letter_backgroundColor
       : correct === "correct"
         ? "rgb(253, 126, 149)"
         : correct === "ambiguous"
@@ -187,7 +187,7 @@ export const Letter = styled.div<{ correct?: string }>`
 `;
 
 export const LetterInput = styled.div<{ correct?: string }>`
-  background-color: ${({ theme }) => theme.style.wordle_letter_background};
+  background-color: ${({ theme }) => theme.style.wordle_letter_backgroundColor};
   border: 2px solid rgb(200, 200, 200);
   width: 100%;
   max-width: 70px;
