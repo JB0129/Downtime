@@ -40,20 +40,27 @@ const Wordle: React.FC = () => {
 
   // 옳바른 단어인지 판단
   const answer = isWord.join("");
-  const { mutate: checkWord } = usePostWord(answer, (res) => {
-    if (!/[a-zA-Z]/.test(res)) {
-      console.log(res);
-      setAnswer((isAnswer) => [...isAnswer, isWord]);
-      setWord([]);
-      return;
-    } else {
-      setEffect("wrong");
-      setTimeout(() => {
-        setEffect("");
-      }, 200);
-      return setMsg("옳바른 단어를 입력해주세요.");
+  const { mutate: checkWord } = usePostWord(
+    answer,
+    (res) => {
+      if (!/[a-zA-Z]/.test(res)) {
+        console.log(res);
+        setAnswer((isAnswer) => [...isAnswer, isWord]);
+        setWord([]);
+        return;
+      } else {
+        setEffect("wrong");
+        setTimeout(() => {
+          setEffect("");
+        }, 200);
+        return setMsg("옳바른 단어를 입력해주세요.");
+      }
+    },
+    (err) => {
+      console.log(err);
+      setMsg("오류가 발생 했습니다.");
     }
-  });
+  );
 
   // event key에 따른 단어입력, 발생 이벤트
   const insertWord = (key: string) => {

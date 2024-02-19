@@ -15,7 +15,7 @@ export const useGetWord = () => {
 export const usePostWord = (
   word: string,
   successFunc?: (res: any) => void,
-  failFunc?: () => void
+  failFunc?: (err: any) => void
 ) => {
   return useMutation({
     mutationKey: ["CheckWord"],
@@ -29,8 +29,7 @@ export const usePostWord = (
       return;
     },
     onError: (err) => {
-      console.log(err);
-      failFunc && failFunc();
+      failFunc && failFunc(err);
       return;
     },
   });
