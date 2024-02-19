@@ -10,7 +10,7 @@ export const WordleContainer = styled.div`
 `;
 
 export const Msg = styled.div`
-  color: rgb(250, 100, 100);
+  color: ${({ theme }) => theme.style.msg_textColor};
   font-size: 14px;
   font-weight: 600;
 `;
@@ -34,13 +34,13 @@ export const Word = styled.li`
 export const Letter = styled.div<{ correct?: string }>`
   background-color: ${({ theme, correct }) =>
     !correct
-      ? theme.style.wordle_letter_backgroundColor
+      ? theme.style.letter_bgColor_basic
       : correct === "correct"
-        ? "rgb(253, 126, 149)"
+        ? theme.style.letter_bgColor_correct
         : correct === "ambiguous"
-          ? "rgb(253, 244, 126)"
-          : "rgb(143, 143, 143)"};
-  border: 2px solid rgb(200, 200, 200);
+          ? theme.style.letter_bgColor_ambiguous
+          : theme.style.letter_bgColor_incorrect};
+  border: 3px solid ${({ theme }) => theme.style.letter_border};
   width: 100%;
   max-width: 70px;
   aspect-ratio: 1/1;
@@ -50,6 +50,7 @@ export const Letter = styled.div<{ correct?: string }>`
   align-items: center;
   font-size: 36px;
   font-weight: 600;
+  color: ${({ theme }) => theme.style.letter_textColor};
 
   // 단어 입력 시 animation
   animation: fadein 1s;
@@ -187,8 +188,8 @@ export const Letter = styled.div<{ correct?: string }>`
 `;
 
 export const LetterInput = styled.div<{ correct?: string }>`
-  background-color: ${({ theme }) => theme.style.wordle_letter_backgroundColor};
-  border: 2px solid rgb(200, 200, 200);
+  background-color: ${({ theme }) => theme.style.letter_bgColor_basic};
+  border: 2px solid ${({ theme }) => theme.style.input_border};
   width: 100%;
   max-width: 70px;
   aspect-ratio: 1/1;

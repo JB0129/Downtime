@@ -68,23 +68,23 @@ export const Loading_Word = styled.ul`
 `;
 
 export const Loading_Letter = styled.li`
-  background-color: ${({ theme }) => "rgb(253, 126, 149)"};
-  border: 2px solid rgb(200, 200, 200);
+  background-color: rgb(253, 126, 149);
+  border: 2px solid rgb(255, 255, 255);
   width: 100%;
   max-width: 70px;
   aspect-ratio: 1/1;
   margin: 0px 5px;
-  color: ${({ theme }) => theme.style.color};
+  color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 36px;
   font-weight: 600;
 
-  animation: correct 1.2s 0s infinite ease-in-out;
-  -moz-animation: correct 1.2s 0s infinite ease-in-out; /* Firefox */
-  -webkit-animation: correct 1.2s 0s infinite ease-in-out; /* Safari and Chrome */
-  -o-animation: correct 1.2s 0s infinite ease-in-out; /* Opera */
+  animation: bounce 1.2s 0s infinite ease-in-out;
+  -moz-animation: bounce 1.2s 0s infinite ease-in-out; /* Firefox */
+  -webkit-animation: bounce 1.2s 0s infinite ease-in-out; /* Safari and Chrome */
+  -o-animation: bounce 1.2s 0s infinite ease-in-out; /* Opera */
 
   // 글자 순서대로 animation delay 적용
   &:nth-child(2) {
@@ -109,7 +109,7 @@ export const Loading_Letter = styled.li`
     animation-delay: 0.84s;
   }
 
-  @keyframes correct {
+  @keyframes bounce {
     0% {
       transform: translateY(0);
     }
@@ -123,7 +123,7 @@ export const Loading_Letter = styled.li`
       transform: translateY(0);
     }
   }
-  @-moz-keyframes correct {
+  @-moz-keyframes bounce {
     0% {
       transform: translateY(0);
     }
@@ -134,7 +134,7 @@ export const Loading_Letter = styled.li`
       transform: translateY(0);
     }
   }
-  @-webkit-keyframes correct {
+  @-webkit-keyframes bounce {
     0% {
       transform: translateY(0);
     }
@@ -145,7 +145,7 @@ export const Loading_Letter = styled.li`
       transform: translateY(0);
     }
   }
-  @-o-keyframes correct {
+  @-o-keyframes bounce {
     0% {
       transform: translateY(0);
     }

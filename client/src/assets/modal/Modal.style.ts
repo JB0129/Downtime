@@ -17,7 +17,7 @@ export const ModalBackground = styled.div`
 `;
 
 export const ModalContainer = styled.div`
-  background-color: ${({ theme }) => theme.style.modal_backgroundColor};
+  background-color: ${({ theme }) => theme.style.modal_bgColor};
   box-shadow: 1px 1px 5px 0.1px rgb(131, 131, 131);
   border-radius: 18px;
   width: 100%;
@@ -34,7 +34,7 @@ export const ModalContents = styled.div`
   width: 100%;
   min-height: 120px;
   padding: 20px;
-  color: ${({ theme }) => theme.style.color};
+  color: ${({ theme }) => theme.style.textColor};
   text-align: center;
   font-weight: 600;
   display: flex;
@@ -45,7 +45,7 @@ export const ModalContents = styled.div`
 
 export const BtnBox = styled.div`
   width: 100%;
-  border-top: 1px solid rgb(80, 80, 80);
+  border-top: 1px solid ${({ theme }) => theme.style.btnBox_border};
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -56,14 +56,14 @@ export const ModalBtn = styled.button`
   max-height: 50px;
   min-height: 50px;
   padding: 10px 0px;
-  color: ${({ theme }) => theme.style.color};
+  color: ${({ theme }) => theme.style.textColor};
   text-align: center;
   font-weight: 600;
   &:hover {
-    background-color: rgb(80, 80, 80);
+    background-color: ${({ theme }) => theme.style.btnBox_bgColor_hover};
   }
   &:active {
-    background-color: rgb(70, 70, 70);
+    background-color: ${({ theme }) => theme.style.btnBox_bgColor_active};
   }
 `;
 

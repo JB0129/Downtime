@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ManualContainer = styled.div`
-  background-color: ${({ theme }) => theme.style.modal_backgroundColor};
+  background-color: ${({ theme }) => theme.style.modal_bgColor};
   box-shadow: 1px 1px 5px 0.1px rgb(131, 131, 131);
   border-radius: 18px;
   width: 100%;
@@ -20,7 +20,7 @@ export const ManualHeader = styled.div`
   justify-content: end;
 
   button {
-    color: ${({ theme }) => theme.style.color};
+    color: ${({ theme }) => theme.style.textColor};
     width: 50px;
     font-size: 36px;
   }
@@ -33,7 +33,7 @@ export const ManualContents = styled.ul`
 export const ManualTitle = styled.div`
   width: 100%;
   margin-bottom: 20px;
-  color: ${({ theme }) => theme.style.color};
+  color: ${({ theme }) => theme.style.textColor};
   font-size: 28px;
   font-weight: 600;
 `;
@@ -49,17 +49,17 @@ export const ManualContent_disc = styled.li`
   margin: 10px 0px 30px 0px;
   padding-right: 15px;
   line-height: 1.3;
-  color: ${({ theme }) => theme.style.color};
+  color: ${({ theme }) => theme.style.textColor};
   span {
     font-weight: 600;
   }
   .correct {
-    color: rgb(253, 126, 149);
+    color: ${({ theme }) => theme.style.letter_bgColor_correct};
   }
   .ambiguous {
-    color: rgb(253, 244, 126);
+    color: ${({ theme }) => theme.style.letter_bgColor_ambiguous};
   }
   .incorrect {
-    color: rgb(143, 143, 143);
+    color: ${({ theme }) => theme.style.letter_bgColor_incorrect};
   }
 `;

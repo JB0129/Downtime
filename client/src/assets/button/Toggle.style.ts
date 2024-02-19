@@ -3,7 +3,7 @@ import styled from "styled-components";
 // 토글 배경
 export const ToggleContainer = styled.div<{ isOn: boolean }>`
   background-color: ${(props) =>
-    props.isOn ? "skyblue" : "rgb(215, 215, 215)"};
+    props.isOn ? "rgb(172, 194, 245)" : "rgb(215, 215, 215)"};
   border: 1px solid rgb(215, 215, 215);
   border-radius: 18px;
   width: 50px;

@@ -14,7 +14,7 @@ export const HeaderContainer = styled.header`
 `;
 
 export const HeaderLine = styled.div`
-  background-color: ${({ theme }) => theme.style.backgroundColor};
+  background-color: ${({ theme }) => theme.style.bgColor};
   width: 100%;
   max-width: 1170px;
   height: 55px;
@@ -30,12 +30,12 @@ export const Logo = styled(Downtime)`
   height: 100%;
   cursor: pointer;
   path {
-    fill: ${({ theme }) => theme.style.color};
+    fill: ${({ theme }) => theme.style.textColor};
   }
 `;
 
 export const Navs = styled.nav`
-  background-color: ${({ theme }) => theme.style.header_backgroundColor};
+  background-color: ${({ theme }) => theme.style.header_bgColor};
   width: 100%;
   height: 40px;
   display: flex;
@@ -44,12 +44,20 @@ export const Navs = styled.nav`
 `;
 
 export const Nav = styled.button`
-  background-color: ${({ theme }) => theme.style.header_backgroundColor};
+  background-color: ${({ theme }) => theme.style.header_bgColor};
   width: 120px;
   height: 100%;
   font-size: 16px;
   font-weight: bold;
-  color: ${({ theme }) => theme.style.color};
+  color: ${({ theme }) => theme.style.textColor};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.style.header_bgColor_hover};
+  }
+
+  &:active {
+    background-color: ${({ theme }) => theme.style.header_bgColor_active};
+  }
 `;
 
 export const OptionBox = styled.div`
@@ -66,7 +74,7 @@ export const Login = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.style.header_backgroundColor};
+  background-color: ${({ theme }) => theme.style.header_bgColor};
 `;
 
 export const ProFileImg = styled.img`
@@ -83,6 +91,6 @@ export const UserUnknown = styled(Person)`
   width: 90%;
   height: 90%;
   path {
-    fill: ${({ theme }) => theme.style.backgroundColor};
+    fill: ${({ theme }) => theme.style.bgColor};
   }
 `;
