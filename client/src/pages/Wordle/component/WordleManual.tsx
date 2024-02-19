@@ -3,6 +3,8 @@ import { ModalBackground } from "../../../assets/modal/Modal.style";
 import {
   ManualContainer,
   ManualContent,
+  ManualContent_disc,
+  ManualContents,
   ManualHeader,
   ManualTitle,
 } from "./WordleManual.style";
@@ -36,49 +38,57 @@ const WordleManual: React.FC<OwnProps> = ({ handleMenu }) => {
         <ManualHeader>
           <button onClick={handleMenu}>&times;</button>
         </ManualHeader>
-        <ul>
+        <ManualContents>
           <ManualTitle>How to play ?</ManualTitle>
-          <ManualContent>
+          <ManualContent_disc>
             타일의 색을 통해 오늘의 단어를 맞추는 게임입니다.
-          </ManualContent>
-          <ManualContent>
+          </ManualContent_disc>
+          <ManualContent_disc>
             기회는 총 6회 입니다. 6번 안에 정답을 맞춰야합니다.
-          </ManualContent>
-          <ManualContent>유효한 단어만 입력 가능합니다.</ManualContent>
-          <Word>
-            {["B", "L", "A", "C", "K"].map((el, idx) => (
-              <Letter key={idx} correct={handleCompare("BLACK", idx)}>
-                <div>{el}</div>
-              </Letter>
-            ))}
-          </Word>
+          </ManualContent_disc>
+          <ManualContent_disc>
+            유효한 단어만 입력 가능합니다.
+          </ManualContent_disc>
           <ManualContent>
+            <Word>
+              {["B", "L", "A", "C", "K"].map((el, idx) => (
+                <Letter key={idx} correct={handleCompare("BLACK", idx)}>
+                  <div>{el}</div>
+                </Letter>
+              ))}
+            </Word>
+          </ManualContent>
+          <ManualContent_disc>
             단어 안에 해당 알파벳이 없을 경우,
             <span className="incorrect"> 회색</span>으로 나타납니다.
-          </ManualContent>
-          <Word>
-            {["S", "W", "E", "A", "T"].map((el, idx) => (
-              <Letter key={idx} correct={handleCompare("SWEAT", idx)}>
-                <div>{el}</div>
-              </Letter>
-            ))}
-          </Word>
+          </ManualContent_disc>
           <ManualContent>
+            <Word>
+              {["S", "W", "E", "A", "T"].map((el, idx) => (
+                <Letter key={idx} correct={handleCompare("SWEAT", idx)}>
+                  <div>{el}</div>
+                </Letter>
+              ))}
+            </Word>
+          </ManualContent>
+          <ManualContent_disc>
             단어 안에 해당 알파벳은 있으나, 위치가 다를 경우
             <span className="ambiguous"> 노란색</span>으로 나타납니다.
-          </ManualContent>
-          <Word>
-            {["W", "H", "I", "T", "E"].map((el, idx) => (
-              <Letter key={idx} correct={handleCompare("WHITE", idx)}>
-                <div>{el}</div>
-              </Letter>
-            ))}
-          </Word>
+          </ManualContent_disc>
           <ManualContent>
+            <Word>
+              {["W", "H", "I", "T", "E"].map((el, idx) => (
+                <Letter key={idx} correct={handleCompare("WHITE", idx)}>
+                  <div>{el}</div>
+                </Letter>
+              ))}
+            </Word>
+          </ManualContent>
+          <ManualContent_disc>
             단어 안에 해당 알파벳이 있으며, 위치도 맞으면
             <span className="correct"> 빨간색</span>으로 나타납니다.
-          </ManualContent>
-        </ul>
+          </ManualContent_disc>
+        </ManualContents>
       </ManualContainer>
     </ModalBackground>
   );

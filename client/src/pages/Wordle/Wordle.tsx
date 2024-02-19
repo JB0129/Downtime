@@ -4,11 +4,16 @@ import WordInput from "./component/WordInput";
 import Keyboard from "./component/Keyboard/Keyboard";
 import { Msg, WordleContainer } from "./Wordle.style";
 import { useGetWord, usePostWord } from "../../hooks/wordleHook";
-import { MainContainer } from "../../assets/layouts/layout.style";
+import {
+  GameContainer,
+  MainContainer,
+} from "../../assets/layouts/layout.style";
 import { GameTitle } from "../../assets/typography/typography.style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
 import WordleManual from "./component/WordleManual";
+import NotFound from "../NotFound";
+import Loading_main from "../../assets/Loading/Loading_main";
 
 const Wordle: React.FC = () => {
   // Wordle 설명서
@@ -31,7 +36,7 @@ const Wordle: React.FC = () => {
   const [msg, setMsg] = useState<string>("");
 
   // 오늘의 단어
-  const { data: todayWord } = useGetWord();
+  const { data: todayWord, isLoading, isError } = useGetWord();
 
   // 옳바른 단어인지 판단
   const answer = isWord.join("");
@@ -97,29 +102,46 @@ const Wordle: React.FC = () => {
     }
   }, [isAnswer, complete]);
 
+  const [loading, setLoading] = useState(true);
+  const finishLoading = () => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  };
+  finishLoading();
+
+  if (isError) {
+    return <NotFound />;
+  }
   return (
     <MainContainer>
-      <GameTitle>
-        <span>Wordle</span>
-        <FontAwesomeIcon
-          icon={faCircleQuestion}
-          className="question"
-          onClick={handleMenu}
+      <GameContainer>
+        <GameTitle>
+          <span>Wordle</span>
+          <FontAwesomeIcon
+            icon={faCircleQuestion}
+            className="question"
+            onClick={handleMenu}
+          />
+        </GameTitle>
+        <WordleContainer>
+          {isAnswer.map((word, idx) => (
+            <Answer key={idx} word={word} complete={complete} />
+          ))}
+          {!complete && <WordInput isWord={isWord} effect={effect} />}
+        </WordleContainer>
+        <Msg>{msg}</Msg>
+        <Keyboard
+          insertWord={insertWord}
+          isAnswer={isAnswer}
+          complete={complete}
         />
-      </GameTitle>
-      <WordleContainer>
-        {isAnswer.map((word, idx) => (
-          <Answer key={idx} word={word} complete={complete} />
-        ))}
-        {!complete && <WordInput isWord={isWord} effect={effect} />}
-      </WordleContainer>
-      <Msg>{msg}</Msg>
-      <Keyboard
-        insertWord={insertWord}
-        isAnswer={isAnswer}
-        complete={complete}
-      />
-      {menu && <WordleManual handleMenu={handleMenu} />}
+        {isLoading || loading ? (
+          <Loading_main word="WORDLE" />
+        ) : (
+          menu && <WordleManual handleMenu={handleMenu} />
+        )}
+      </GameContainer>
     </MainContainer>
   );
 };

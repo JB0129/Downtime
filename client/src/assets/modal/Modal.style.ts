@@ -45,7 +45,7 @@ export const ModalContents = styled.div`
 
 export const BtnBox = styled.div`
   width: 100%;
-  border-top: 1px solid rgb(215, 215, 215);
+  border-top: 1px solid rgb(80, 80, 80);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -60,13 +60,14 @@ export const ModalBtn = styled.button`
   text-align: center;
   font-weight: 600;
   &:hover {
-    background-color: rgb(215, 215, 215);
+    background-color: rgb(80, 80, 80);
   }
   &:active {
-    background-color: rgb(162, 162, 162);
+    background-color: rgb(70, 70, 70);
   }
 `;
 
 export const CheckBtn = styled(ModalBtn)``;
+
 // export const PositiveBtn = styled(ModalBtn)``;
 // export const NegativeBtn = styled(ModalBtn)``;

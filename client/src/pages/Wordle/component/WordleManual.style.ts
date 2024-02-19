@@ -26,7 +26,12 @@ export const ManualHeader = styled.div`
   }
 `;
 
+export const ManualContents = styled.ul`
+  width: 100%;
+`;
+
 export const ManualTitle = styled.div`
+  width: 100%;
   margin-bottom: 20px;
   color: ${({ theme }) => theme.style.color};
   font-size: 28px;
@@ -34,9 +39,16 @@ export const ManualTitle = styled.div`
 `;
 
 export const ManualContent = styled.li`
+  width: 100%;
+  padding-right: 15px;
+`;
+
+export const ManualContent_disc = styled.li`
+  width: 100%;
   list-style-type: disc;
   margin: 10px 0px 30px 0px;
-  line-height: 1.2;
+  padding-right: 15px;
+  line-height: 1.3;
   color: ${({ theme }) => theme.style.color};
   span {
     font-weight: 600;

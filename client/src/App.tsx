@@ -20,6 +20,7 @@ import Minesweeper from "./pages/Minesweeper/Minesweeper";
 import AlertModal from "./assets/modal/Alert";
 import { alertAtom } from "./recoil/atoms";
 import "./App.css";
+import Footer from "./components/Footer/Footer";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       <>
         <Header />
         <Outlet />
+        {/* <Footer /> */}
       </>
     ),
     errorElement: <NotFound />,
