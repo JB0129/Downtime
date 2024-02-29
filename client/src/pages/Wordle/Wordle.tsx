@@ -43,8 +43,7 @@ const Wordle: React.FC = () => {
   const { mutate: checkWord } = usePostWord(
     answer,
     (res) => {
-      if (!/[a-zA-Z]/.test(res)) {
-        console.log(res);
+      if (res) {
         setAnswer((isAnswer) => [...isAnswer, isWord]);
         setWord([]);
         return;

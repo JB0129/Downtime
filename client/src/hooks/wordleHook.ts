@@ -21,7 +21,7 @@ export const usePostWord = (
     mutationKey: ["CheckWord"],
     mutationFn: async () => {
       const response = await postCheckWord(word);
-      return response.translatedText;
+      return response;
     },
     onSuccess: (res) => {
       queryClient.invalidateQueries({ queryKey: ["GetWord"] });
