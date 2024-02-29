@@ -41,7 +41,7 @@ const WordleManual: React.FC<OwnProps> = ({ handleMenu }) => {
         <ManualContents>
           <ManualTitle>How to play ?</ManualTitle>
           <ManualContent_disc>
-            타일의 색을 통해 오늘의 단어를 맞추는 게임입니다.
+            타일 색을 보고 오늘의 단어를 유추하는 게임입니다.
           </ManualContent_disc>
           <ManualContent_disc>
             기회는 총 6회 입니다. 6번 안에 정답을 맞춰야합니다.

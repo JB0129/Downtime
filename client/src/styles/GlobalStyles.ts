@@ -48,10 +48,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-*{
-  box-sizing: border-box;
-  font-family: "Noto Sans KR";
-}
 a{
   text-decoration: none
 }

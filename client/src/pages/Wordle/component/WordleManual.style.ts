@@ -6,12 +6,17 @@ export const ManualContainer = styled.div`
   border-radius: 18px;
   width: 100%;
   max-width: 650px;
-  min-height: 650px;
-  padding: 0px 10px 0px 50px;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
+  padding: 0px 10px 0px 50px;
+  @media screen and (max-width: 500px) {
+    padding: 0px 10px 0px 40px;
+  }
+  @media screen and (max-width: 400px) {
+    padding: 0px 10px 0px 30px;
+  }
 `;
 
 export const ManualHeader = styled.div`
@@ -30,17 +35,12 @@ export const ManualContents = styled.ul`
   width: 100%;
 `;
 
-export const ManualTitle = styled.div`
+export const ManualTitle = styled.li`
   width: 100%;
   margin-bottom: 20px;
   color: ${({ theme }) => theme.style.textColor};
   font-size: 28px;
   font-weight: 600;
-`;
-
-export const ManualContent = styled.li`
-  width: 100%;
-  padding-right: 15px;
 `;
 
 export const ManualContent_disc = styled.li`
@@ -50,6 +50,22 @@ export const ManualContent_disc = styled.li`
   padding-right: 15px;
   line-height: 1.3;
   color: ${({ theme }) => theme.style.textColor};
+
+  transition: 300ms;
+
+  @media screen and (max-width: 500px) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: 400px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 350px) {
+    font-size: 13px;
+  }
+  @media screen and (max-width: 300px) {
+    font-size: 12px;
+  }
+
   span {
     font-weight: 600;
   }
@@ -61,5 +77,26 @@ export const ManualContent_disc = styled.li`
   }
   .incorrect {
     color: ${({ theme }) => theme.style.letter_bgColor_incorrect};
+  }
+`;
+
+export const ManualContent = styled.ul`
+  width: 100%;
+  padding-right: 15px;
+  div {
+    transition: 300ms;
+
+    @media screen and (max-width: 500px) {
+      font-size: 30px;
+    }
+    @media screen and (max-width: 400px) {
+      font-size: 25px;
+    }
+    @media screen and (max-width: 350px) {
+      font-size: 20px;
+    }
+    @media screen and (max-width: 300px) {
+      font-size: 15px;
+    }
   }
 `;

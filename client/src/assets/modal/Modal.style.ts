@@ -2,18 +2,17 @@ import styled from "styled-components";
 
 export const ModalBackground = styled.div`
   background-color: rgb(150, 150, 150, 40%);
-  z-index: 40;
   width: 100vw;
   height: 100vh;
   overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 40;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  color: black;
 `;
 
 export const ModalContainer = styled.div`

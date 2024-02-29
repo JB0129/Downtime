@@ -47,9 +47,17 @@ export const Nav = styled.button`
   background-color: ${({ theme }) => theme.style.header_bgColor};
   width: 120px;
   height: 100%;
-  font-size: 16px;
+  white-space: nowrap;
   font-weight: bold;
   color: ${({ theme }) => theme.style.textColor};
+
+  font-size: 16px;
+  @media screen and (max-width: 400px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 350px) {
+    font-size: 12px;
+  }
 
   &:hover {
     background-color: ${({ theme }) => theme.style.header_bgColor_hover};

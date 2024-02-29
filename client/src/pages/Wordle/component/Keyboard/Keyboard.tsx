@@ -1,5 +1,5 @@
 import React from "react";
-import { KeyLine, KeyboardContainer, Keys } from "./Keyboard.style";
+import { KeyLine, KeyboardContainer, KeyBtn, Keys } from "./Keyboard.style";
 import { useGetWord } from "../../../../hooks/wordleHook";
 
 interface OwnProps {
@@ -36,23 +36,19 @@ const Keyboard: React.FC<OwnProps> = ({ insertWord, isAnswer, complete }) => {
     <KeyboardContainer>
       <KeyLine>
         {topKey.map((el, idx) => (
-          <Keys
-            key={idx}
-            onClick={handleInsertWord}
-            correct={handleCompare(el)}
-          >
-            {el}
+          <Keys key={idx}>
+            <KeyBtn onClick={handleInsertWord} correct={handleCompare(el)}>
+              {el}
+            </KeyBtn>
           </Keys>
         ))}
       </KeyLine>
       <KeyLine>
         {middleKey.map((el, idx) => (
-          <Keys
-            key={idx}
-            onClick={handleInsertWord}
-            correct={handleCompare(el)}
-          >
-            {el}
+          <Keys key={idx}>
+            <KeyBtn onClick={handleInsertWord} correct={handleCompare(el)}>
+              {el}
+            </KeyBtn>
           </Keys>
         ))}
       </KeyLine>
@@ -60,10 +56,11 @@ const Keyboard: React.FC<OwnProps> = ({ insertWord, isAnswer, complete }) => {
         {bottomKey.map((el, idx) => (
           <Keys
             key={idx}
-            onClick={handleInsertWord}
-            correct={handleCompare(el)}
+            className={el === "←" || el === "Enter" ? "other" : ""}
           >
-            {el}
+            <KeyBtn onClick={handleInsertWord} correct={handleCompare(el)}>
+              {el}
+            </KeyBtn>
           </Keys>
         ))}
       </KeyLine>
