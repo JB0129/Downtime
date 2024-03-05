@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { KeyLine, KeyboardContainer, KeyBtn, Keys } from "./Keyboard.style";
 import { useGetWord } from "../../../../hooks/wordleHook";
 
@@ -16,7 +16,10 @@ const Keyboard: React.FC<OwnProps> = ({ insertWord, isAnswer, complete }) => {
   const bottomKey = ["←", "Z", "X", "C", "V", "B", "N", "M", "Enter"];
 
   const handleInsertWord = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (!complete) insertWord(e.currentTarget.textContent);
+    if (!complete) {
+      insertWord(e.currentTarget.textContent);
+    }
+    e.currentTarget.blur();
   };
 
   const handleCompare = (el: string) => {
