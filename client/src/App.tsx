@@ -3,24 +3,24 @@ import { useRecoilValue } from "recoil";
 import { themeAtom } from "./styles/theme";
 import { ThemeProvider } from "styled-components";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { PageContainer } from "./assets/layouts/layout.style";
+import "./App.css";
+import { alertAtom } from "./recoil/atoms";
 import Main from "./pages/Main/Main";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
-import NotFound from "./pages/NotFound";
-import Header from "./components/Header/Header";
-import { PageContainer } from "./assets/layouts/layout.style";
 import Games from "./pages/Games/Games";
 import Wordle from "./pages/Wordle/Wordle";
 import Quiz from "./pages/Quiz/Quiz";
-import Pingpong from "./pages/Pingpong/Pingpong";
+import FindMusic from "./pages/FindMusic/FindMusic";
 import Jumping from "./pages/Jumping/Jumping";
 import Ranking from "./pages/Ranking/Ranking";
 import Community from "./pages/Community/Community";
 import Minesweeper from "./pages/Minesweeper/Minesweeper";
-import AlertModal from "./assets/modal/Alert";
-import { alertAtom } from "./recoil/atoms";
-import "./App.css";
+import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import NotFound from "./pages/NotFound";
+import AlertModal from "./assets/modal/Alert";
 
 const router = createBrowserRouter([
   {
@@ -65,10 +65,10 @@ const router = createBrowserRouter([
       //   path: "/jumping",
       //   element: <Jumping />,
       // },
-      // {
-      //   path: "/pingpong",
-      //   element: <Pingpong />,
-      // },
+      {
+        path: "/music",
+        element: <FindMusic />,
+      },
       // {
       //   path: "/quiz",
       //   element: <Quiz />,
