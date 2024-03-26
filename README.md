@@ -29,5 +29,6 @@
 
 <detail>
   <summary><li> 플레이 영상</li></summary>
-  ![wordle1](https://github.com/JB0129/Downtime/assets/130051470/07299180-0488-4824-958f-fe5c0eb5de7e)
+  <br />
+  <img width="400px" src="https://github.com/JB0129/Downtime/assets/130051470/07299180-0488-4824-958f-fe5c0eb5de7e" alt="wordle 스크린샷" />
 </detail>
