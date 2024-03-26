@@ -14,7 +14,8 @@
 
 <br />
 
-## ✍ 배포주소 : [Downtime](https://www.doong9.com) 
+## ✍ 배포주소
+- https://www.doong9.com
 
 <br />
 
