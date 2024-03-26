@@ -24,12 +24,9 @@
 ## 사이트 소개
 
 ### 1. Wordle (game)
-<li> 개발 기간 : 2024.01.22 ~ 2024.02.21</li>
+<li>개발 기간 : 2024.01.22 ~ 2024.02.21</li>
 <li>간단 소개 : 6번의 기회 안에 5글자인 오늘의 영단어를 맞추는 게임입니다.</li>
-<li>
-  <details>
-    <summary>플레이 영상</summary>
-    <br />
-    <img width="400px" src="https://github.com/JB0129/Downtime/assets/130051470/07299180-0488-4824-958f-fe5c0eb5de7e" alt="wordle 스크린샷" />
-  </details>
-</li>
+<li>플레이 영상</li>
+<img width="400px" src="https://github.com/JB0129/Downtime/assets/130051470/07299180-0488-4824-958f-fe5c0eb5de7e" alt="wordle 스크린샷" />
+
+
